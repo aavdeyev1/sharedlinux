@@ -12,7 +12,7 @@ main.o: main.cu
 			nvcc -arch=sm_30 -c main.cu
 
 prime.o: prime.c prime.h
-			g++ -c -x c++ timing.c -I.
+			g++ -c -x c++ prime.c -I.
 
 timing.o: timing.c timing.h
 			g++ -c -x c++ timing.c -I.
