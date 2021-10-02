@@ -1,0 +1,196 @@
+{
+	"python.pythonPath": "C:\\Users\\amelavde\\AppData\\Local\\Programs\\Python\\Python38-32\\python.exe",
+	"python.linting.pylintEnabled": false,
+    "python.linting.pycodestyleEnabled": true,
+    "python.linting.enabled": true,
+    "editor.fontFamily": "'Cascadia Code PL', 'Fira Code Retina', 'Fira Code Medium', 'FiraCode-Retina', Consolas, 'Courier New', monospace",
+    "editor.tabSize": 4,
+    "editor.wordWrapColumn": 80,
+    "files.exclude": {
+        "_hdl_checker": true,
+        ".history": true,
+        ".history\\src\\*": true,
+        ".vscode-ctags": true,
+        "*.bak": true,
+        "*.lock": true,
+        "*.log": true,
+        "*.png": true,
+        "*.wlf": true,
+        "**/.git": false,
+        "*~*": true,
+        "transcript": true
+    },
+
+
+
+    "editor.minimap.enabled": false,
+    "workbench.panel.defaultLocation": "right",
+    "terminal.integrated.copyOnSelection": true,
+    "editor.fontLigatures": true,
+
+    // "editor.foldingStrategy": "indentation",
+    "editor.parameterHints.cycle": true,
+    "editor.parameterHints.enabled": false,
+    "editor.stablePeek": true,
+    "editor.tabCompletion": "on",
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.find.autoFindInSelection": "multiline",
+    "editor.quickSuggestions": {
+        "other": false,
+        "comments": false,
+        "strings": false
+    },
+    "editor.snippetSuggestions": "bottom",
+    "editor.tokenColorCustomizations": {
+        "functions": "#9e91ec",
+        // "comments": "#001aac70",
+        "numbers": "#aa5050",
+        // "keywords": "#FF0000",
+    },
+    "workbench.colorCustomizations": {
+        // "activityBar.background": "#dddddd",
+        // "editor.selectionHighlightBackground": "#0004ff1f",
+        "editorRuler.foreground": "#ff40406b",
+        // "tab.inactiveBackground": "#bbbbbb",
+        "tab.activeBorderTop": "#0044ff",
+        // "tab.activeBackground": "#e9e9e9",
+        // "editor.foreground": "#000000",
+        // "editor.background": "#e9e9e9",
+        // "editor.lineHighlightBackground": "#fffedbbd",
+        // "tree.indentGuidesStroke": "#002fff81"
+
+    },
+    "editor.rulers": [80,120],
+    "workbench.editor.highlightModifiedTabs": true,
+    "editor.suggest.localityBonus": true,
+    "search.quickOpen.includeSymbols": true,
+    "editor.acceptSuggestionOnEnter": "smart",
+    "python.autoComplete.addBrackets": true,
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.fontSize": 16,
+    "[python]": {
+    "editor.tabSize": 4
+    },
+
+    "window.zoomLevel": 0,
+    // "workbench.iconTheme": "vscode-icons",
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 5000,
+
+    "window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}",
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.tabCloseButton": "right",
+    "workbench.editor.tabSizing": "shrink",
+    "python.linting.flake8Enabled": false,
+
+    "explorer.confirmDelete": false,
+    "editor.renderWhitespace": "none",
+    "explorer.autoReveal": false,
+    "workbench.editor.revealIfOpen": true,
+    "editor.suggestSelection": "first",
+    "python.autoComplete.extraPaths": [
+        "./sim/common/"
+    ],
+    "git-graph.defaultColumnVisibility": {
+        "Date": true,
+        "Author": true,
+        "Commit": false,
+        "Tag": true
+    },
+    "workbench.tree.renderIndentGuides": "always",
+    "local-history.maxDisplay": 30,
+    "local-history.saveDelay": 300,
+    "bracket-pair-colorizer-2.colors": [
+        "Red",
+        "DarkRed",
+        "DarkBlue",
+        "Green",
+        "Gold",
+        "Pink",
+    ],
+    "bracket-pair-colorizer-2.showHorizontalScopeLine": false,
+    // "python.workspaceSymbols.ctagsPath": "C:/Users/rohikuma/Downloads/ctags64/ctags.exe",
+    "editor.renderControlCharacters": false,
+    "python.workspaceSymbols.enabled": true,
+    "editor.fontSize": 14,
+    "workbench.activityBar.visible": true,
+    "gitlens.currentLine.enabled": false,
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false,
+    "editor.quickSuggestionsDelay": 100,
+    "python.linting.pycodestyleArgs":
+        // ["--ignore=E221,W503,E252,E402, E251, W504, W291, W292, W293",
+  ["--ignore=E221, E227, E241, E252, E402, E222, E226, E266, E261, E251, W503, W504, W291, W292, W293, E501",
+
+        // ["--ignore=E221, E241,E252,E251,E402,E226,W503,W504,W291,W292,W293",
+        "--max-line-length=100"
+    ],
+    "git-graph.dateType": "Commit Date",
+    "git-graph.initialLoadCommits": 100,
+    "git-graph.loadMoreCommits": 50,
+    "git.autofetchPeriod": 600,
+    "HDL.linting.linter": "modelsim",
+    "HDL.disableIndexing": true,
+    "vsicons.dontShowNewVersionMessage": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.wordWrap": "off",
+    "[markdown]": {
+    "editor.wordWrapColumn": 80
+    },
+    "todo-tree.tree.showScanModeButton": false,
+    "git.confirmSync": false,
+    "workbench.editor.scrollToSwitchTabs": true,
+    "editor.semanticTokenColorCustomizations": {
+        "enabled": true, // enable semantic highlighting for all themes
+        "rules": {
+            // different color for all constants
+            "property.readonly": "#35166d",
+
+            // make all symbol declarations bold
+            "*.declaration": { "bold": true }
+        }
+    },
+    "editor.columnSelection": false,
+    "workbench.editorAssociations": {
+        "*.doc": "default"
+    },
+
+    // "atlascode.jira.enabled": true,
+    // "atlascode.bitbucket.enabled": true,
+    // "atlascode.jira.jqlList": [
+    //     {
+    //         "enabled": true,
+    //         "filterId": 72007,
+    //         "id": "cd438878-4182-4924-aebb-89905e9fd24c",
+    //         "monitor": true,
+    //         "name": "My Current Sprint Tasks",
+    //         "query": "assignee = currentuser() AND assignee = rohikuma AND Sprint in openSprints()",
+    //         "siteId": "jira.metro.ad.selinc.com"
+    //     }
+    // ],
+    // "atlascode.jira.explorer.refreshInterval": 120,
+    // "atlascode.bitbucket.explorer.refreshInterval": 120,
+    // "diffEditor.renderSideBySide": true,
+    // "atlascode.jira.lastCreateSiteAndProject": {
+    //     "siteId": "jira.metro.ad.selinc.com",
+    //     "projectKey": "FOOG"
+    // },
+    "systemverilog.disableIndexing": true,
+    "typescript.check.npmIsInstalled": false,
+    "npm.autoDetect": "off",
+    "npm.fetchOnlinePackageInfo": false,
+    "terminal.external.windowsExec": "",
+    "python.showStartPage": false,
+    "breadcrumbs.enabled": true,
+    "diffEditor.maxComputationTime": 0,
+    "files.trimTrailingWhitespace": true,
+    "editor.largeFileOptimizations": false,
+    "csv-edit.fontSizeInPx": 14,
+    "python.analysis.extraPaths": [
+        "./sim/common/"
+    ],
+    "python.analysis.completeFunctionParens": true,
+
+}

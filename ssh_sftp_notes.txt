@@ -1,0 +1,375 @@
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+Amelyas-MacBook-Air:~ amelyaavdeyev$ ssh aavdeyev1@146.187.134.46
+USE OF THIS SYSTEM IS RESTRICTED TO AUTHORIZED EASTERN WASHINGTON UNIVERSITY
+USERS ONLY!! UNAUTHORIZED ACCESS IS PROHIBITED!!
+aavdeyev1@146.187.134.46's password: 
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 4.15.0-154-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Tue Sep 28 20:02:43 PDT 2021
+
+  System load:  0.0                Processes:              213
+  Usage of /:   6.2% of 426.95GB   Users logged in:        1
+  Memory usage: 2%                 IP address for eno1:    146.187.134.46
+  Swap usage:   0%                 IP address for docker0: 172.17.0.1
+
+ * Super-optimized for small spaces - read how we shrank the memory
+   footprint of MicroK8s to make it the smallest full K8s around.
+
+   https://ubuntu.com/blog/microk8s-memory-optimisation
+
+Last login: Fri Sep 24 08:54:19 2021 from 10.104.152.143
+"uname -mrs"
+exit
+
+aavdeyev1@cscd-gpu01:~$ "uname -mrs"
+uname -mrs: command not found
+aavdeyev1@cscd-gpu01:~$ exit
+logout
+Connection to 146.187.134.46 closed.
+Amelyas-MacBook-Air:~ amelyaavdeyev$ ssh aavdeyev1@146.187.134.46
+USE OF THIS SYSTEM IS RESTRICTED TO AUTHORIZED EASTERN WASHINGTON UNIVERSITY
+USERS ONLY!! UNAUTHORIZED ACCESS IS PROHIBITED!!
+aavdeyev1@146.187.134.46's password: 
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 4.15.0-154-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Tue Sep 28 20:06:49 PDT 2021
+
+  System load:  0.26               Processes:              215
+  Usage of /:   6.2% of 426.95GB   Users logged in:        1
+  Memory usage: 2%                 IP address for eno1:    146.187.134.46
+  Swap usage:   0%                 IP address for docker0: 172.17.0.1
+
+ * Super-optimized for small spaces - read how we shrank the memory
+   footprint of MicroK8s to make it the smallest full K8s around.
+
+   https://ubuntu.com/blog/microk8s-memory-optimisation
+
+Last login: Tue Sep 28 20:02:44 2021 from 172.16.2.44
+aavdeyev1@cscd-gpu01:~$ ls -lh
+total 32K
+drwxr-xr-x 2 aavdeyev1 domain users 4.0K Sep 22 09:17 Desktop
+drwxr-xr-x 2 aavdeyev1 domain users 4.0K Sep 22 09:17 Documents
+drwxr-xr-x 2 aavdeyev1 domain users 4.0K Sep 22 09:17 Downloads
+drwxr-xr-x 2 aavdeyev1 domain users 4.0K Sep 22 09:17 Music
+lrwxrwxrwx 1 aavdeyev1 domain users   17 Sep 22 09:17 netstorage -> /mnt/ns-aavdeyev1
+drwxr-xr-x 2 aavdeyev1 domain users 4.0K Sep 22 09:17 Pictures
+drwxr-xr-x 2 aavdeyev1 domain users 4.0K Sep 22 09:17 Public
+drwxr-xr-x 2 aavdeyev1 domain users 4.0K Sep 22 09:17 Templates
+drwxr-xr-x 2 aavdeyev1 domain users 4.0K Sep 22 09:17 Videos
+aavdeyev1@cscd-gpu01:~$ cd netstorage
+aavdeyev1@cscd-gpu01:~/netstorage$ ls
+'blagosloven tot dom.pdf'   lab7.raw
+'Camera Roll'              'LAB 8.asc'
+ Capture3.PNG              'LAB 8 B.asc'
+ Capture.PNG               'LAB 8 B.log'
+ circuit1.log              'LAB 8 B.raw'
+ circuit1.net              'LAB 8.log'
+ circuit1.raw              'LAB 8.op.raw'
+ desktop.ini               'LAB 8.raw'
+ Doc1.docx                  labcircuitextra_include.log
+ Draft1.asc                 labcircuitextra_include.net
+ Draft1.log                 labcircuitextra_include.raw
+ Draft1.raw                 labcircuitextra_lab5.net
+ Draft2.log                 labcircuitextra.log
+ Draft2.op.raw              labcircuitextra.net
+ Draft2.raw                 labcircuitextra.raw
+'HW_1_EENG209_NG (1).pdf'   LM741.log
+ HW_1_EENG209_NG.pdf        LM741.MOD
+ Lab1.13.docx              '$RECYCLE.BIN'
+ lab6-1.asc                 schematic.asc
+ lab7.asc                  '~snapshot'
+ lab7.log                   Thumbs.db
+ lab7.op.raw               'Вся слава Тебе.pdf'
+aavdeyev1@cscd-gpu01:~/netstorage$ put local.sharedlinux
+
+Command 'put' not found, did you mean:
+
+  command 'bput' from deb ax25-tools
+  command 'tput' from deb ncurses-bin
+  command 'cut' from deb coreutils
+  command 'pt' from deb tcllib
+  command 'prt' from deb prt
+  command 'nut' from deb nutsqlite
+  command 'dput' from deb dput
+  command 'dput' from deb dput-ng
+  command 'pat' from deb dist
+  command 'ppt' from deb bsdgames
+  command 'wput' from deb wput
+  command 'puf' from deb puf
+  command 'pua' from deb pglistener
+
+Try: apt install <deb name>
+
+aavdeyev1@cscd-gpu01:~/netstorage$ sftp
+usage: sftp [-46aCfpqrv] [-B buffer_size] [-b batchfile] [-c cipher]
+          [-D sftp_server_path] [-F ssh_config] [-i identity_file] [-l limit]
+          [-o ssh_option] [-P port] [-R num_requests] [-S program]
+          [-s subsystem | sftp_server] host
+       sftp [user@]host[:file ...]
+       sftp [user@]host[:dir[/]]
+       sftp -b batchfile [user@]host
+aavdeyev1@cscd-gpu01:~/netstorage$ sftp put local.sharedlinux
+ssh: Could not resolve hostname put: Temporary failure in name resolution
+Connection closed
+aavdeyev1@cscd-gpu01:~/netstorage$ exit
+logout
+Connection to 146.187.134.46 closed.
+Amelyas-MacBook-Air:~ amelyaavdeyev$ sftp aavdeyev1@146.187.134.46
+USE OF THIS SYSTEM IS RESTRICTED TO AUTHORIZED EASTERN WASHINGTON UNIVERSITY
+USERS ONLY!! UNAUTHORIZED ACCESS IS PROHIBITED!!
+aavdeyev1@146.187.134.46's password: 
+Connected to 146.187.134.46.
+sftp> ?
+Available commands:
+bye                                Quit sftp
+cd path                            Change remote directory to 'path'
+chgrp [-h] grp path                Change group of file 'path' to 'grp'
+chmod [-h] mode path               Change permissions of file 'path' to 'mode'
+chown [-h] own path                Change owner of file 'path' to 'own'
+df [-hi] [path]                    Display statistics for current directory or
+                                   filesystem containing 'path'
+exit                               Quit sftp
+get [-afpR] remote [local]         Download file
+help                               Display this help text
+lcd path                           Change local directory to 'path'
+lls [ls-options [path]]            Display local directory listing
+lmkdir path                        Create local directory
+ln [-s] oldpath newpath            Link remote file (-s for symlink)
+lpwd                               Print local working directory
+ls [-1afhlnrSt] [path]             Display remote directory listing
+lumask umask                       Set local umask to 'umask'
+mkdir path                         Create remote directory
+progress                           Toggle display of progress meter
+put [-afpR] local [remote]         Upload file
+pwd                                Display remote working directory
+quit                               Quit sftp
+reget [-fpR] remote [local]        Resume download file
+rename oldpath newpath             Rename remote file
+reput [-fpR] local [remote]        Resume upload file
+rm path                            Delete remote file
+rmdir path                         Remove remote directory
+symlink oldpath newpath            Symlink remote file
+version                            Show SFTP version
+!command                           Execute 'command' in local shell
+!                                  Escape to local shell
+?                                  Synonym for help
+sftp> ls -lh
+drwxr-xr-x    ? 1291931076 1149600513     4.0K Sep 22 09:17 Desktop
+drwxr-xr-x    ? 1291931076 1149600513     4.0K Sep 22 09:17 Documents
+drwxr-xr-x    ? 1291931076 1149600513     4.0K Sep 22 09:17 Downloads
+drwxr-xr-x    ? 1291931076 1149600513     4.0K Sep 22 09:17 Music
+drwxr-xr-x    ? 1291931076 1149600513     4.0K Sep 22 09:17 Pictures
+drwxr-xr-x    ? 1291931076 1149600513     4.0K Sep 22 09:17 Public
+drwxr-xr-x    ? 1291931076 1149600513     4.0K Sep 22 09:17 Templates
+drwxr-xr-x    ? 1291931076 1149600513     4.0K Sep 22 09:17 Videos
+lrwxrwxrwx    ? 1291931076 1149600513      17B Sep 22 09:17 netstorage
+sftp> put Desktop/sharedlinux
+Uploading Desktop/sharedlinux/ to /home/EASTERN/aavdeyev1/sharedlinux
+Desktop/sharedlinux/ is not a regular file
+sftp> put Desktop/sharedlinux/d01_prime.zip
+Uploading Desktop/sharedlinux/d01_prime.zip to /home/EASTERN/aavdeyev1/d01_prime.zip
+Desktop/sharedlinux/d01_prime.zip             100% 9515    28.6KB/s   00:00    
+sftp> ls netstorage 
+netstorage/$RECYCLE.BIN                                                         
+netstorage/Camera Roll                                                          
+netstorage/Capture.PNG                                                          
+netstorage/Capture3.PNG                                                         
+netstorage/Doc1.docx                                                            
+netstorage/Draft1.asc                                                           
+netstorage/Draft1.log                                                           
+netstorage/Draft1.raw                                                           
+netstorage/Draft2.log                                                           
+netstorage/Draft2.op.raw                                                        
+netstorage/Draft2.raw                                                           
+netstorage/HW_1_EENG209_NG (1).pdf                                              
+netstorage/HW_1_EENG209_NG.pdf                                                  
+netstorage/LAB 8 B.asc                                                          
+netstorage/LAB 8 B.log                                                          
+netstorage/LAB 8 B.raw                                                          
+netstorage/LAB 8.asc                                                            
+netstorage/LAB 8.log                                                            
+netstorage/LAB 8.op.raw                                                         
+netstorage/LAB 8.raw                                                            
+netstorage/LM741.MOD                                                            
+netstorage/LM741.log                                                            
+netstorage/Lab1.13.docx                                                         
+netstorage/Thumbs.db                                                            
+netstorage/blagosloven tot dom.pdf                                              
+netstorage/circuit1.log                                                         
+netstorage/circuit1.net                                                         
+netstorage/circuit1.raw                                                         
+netstorage/desktop.ini                                                          
+netstorage/lab6-1.asc                                                           
+netstorage/lab7.asc                                                             
+netstorage/lab7.log                                                             
+netstorage/lab7.op.raw                                                          
+netstorage/lab7.raw                                                             
+netstorage/labcircuitextra.log                                                  
+netstorage/labcircuitextra.net                                                  
+netstorage/labcircuitextra.raw                                                  
+netstorage/labcircuitextra_include.log                                          
+netstorage/labcircuitextra_include.net                                          
+netstorage/labcircuitextra_include.raw                                          
+netstorage/labcircuitextra_lab5.net                                             
+netstorage/schematic.asc                                                        
+netstorage/~snapshot                                                            
+netstorage/Вся слава Тебе.pdf                                       
+sftp> ?
+Available commands:
+bye                                Quit sftp
+cd path                            Change remote directory to 'path'
+chgrp [-h] grp path                Change group of file 'path' to 'grp'
+chmod [-h] mode path               Change permissions of file 'path' to 'mode'
+chown [-h] own path                Change owner of file 'path' to 'own'
+df [-hi] [path]                    Display statistics for current directory or
+                                   filesystem containing 'path'
+exit                               Quit sftp
+get [-afpR] remote [local]         Download file
+help                               Display this help text
+lcd path                           Change local directory to 'path'
+lls [ls-options [path]]            Display local directory listing
+lmkdir path                        Create local directory
+ln [-s] oldpath newpath            Link remote file (-s for symlink)
+lpwd                               Print local working directory
+ls [-1afhlnrSt] [path]             Display remote directory listing
+lumask umask                       Set local umask to 'umask'
+mkdir path                         Create remote directory
+progress                           Toggle display of progress meter
+put [-afpR] local [remote]         Upload file
+pwd                                Display remote working directory
+quit                               Quit sftp
+reget [-fpR] remote [local]        Resume download file
+rename oldpath newpath             Rename remote file
+reput [-fpR] local [remote]        Resume upload file
+rm path                            Delete remote file
+rmdir path                         Remove remote directory
+symlink oldpath newpath            Symlink remote file
+version                            Show SFTP version
+!command                           Execute 'command' in local shell
+!                                  Escape to local shell
+?                                  Synonym for help
+sftp> get netstorage/Capture.PNG aavdeyev1/Desktop
+Fetching /home/EASTERN/aavdeyev1/netstorage/Capture.PNG to aavdeyev1/Desktop
+Couldn't open local file "aavdeyev1/Desktop" for writing: No such file or directory
+sftp> get netstorage/Capture.PNG amelyaavdeyev/Desktop
+Fetching /home/EASTERN/aavdeyev1/netstorage/Capture.PNG to amelyaavdeyev/Desktop
+Couldn't open local file "amelyaavdeyev/Desktop" for writing: No such file or directory
+sftp> get netstorage/Capture.PNG
+Fetching /home/EASTERN/aavdeyev1/netstorage/Capture.PNG to Capture.PNG
+/home/EASTERN/aavdeyev1/netstorage/Capture.PN 100%   57KB 162.4KB/s   00:00    
+sftp> get netstorage/Capture.PNG ssh_stuff
+Fetching /home/EASTERN/aavdeyev1/netstorage/Capture.PNG to ssh_stuff/Capture.PNG
+/home/EASTERN/aavdeyev1/netstorage/Capture.PN 100%   57KB 181.2KB/s   00:00    
+sftp> get netstorage/Capture3.PNG ssh_stuff            
+Fetching /home/EASTERN/aavdeyev1/netstorage/Capture3.PNG to ssh_stuff/Capture3.PNG
+/home/EASTERN/aavdeyev1/netstorage/Capture3.P 100%   96KB 114.0KB/s   00:00    
+sftp> bye
+Amelyas-MacBook-Air:~ amelyaavdeyev$ sftp aavdeyev1@146.187.134.46
+USE OF THIS SYSTEM IS RESTRICTED TO AUTHORIZED EASTERN WASHINGTON UNIVERSITY
+USERS ONLY!! UNAUTHORIZED ACCESS IS PROHIBITED!!
+aavdeyev1@146.187.134.46's password: 
+Connected to 146.187.134.46.
+sftp> put -r Desktop/sharedlinux
+Uploading Desktop/sharedlinux/ to /home/EASTERN/aavdeyev1/sharedlinux
+Entering Desktop/sharedlinux/
+Desktop/sharedlinux/.DS_Store                 100% 6148    66.1KB/s   00:00    
+sftp> exit
+Amelyas-MacBook-Air:~ amelyaavdeyev$ ssh aavdeyev1@146.187.134.46
+USE OF THIS SYSTEM IS RESTRICTED TO AUTHORIZED EASTERN WASHINGTON UNIVERSITY
+
+
+Last login: Tue Sep 28 20:06:50 2021 from 172.16.2.44
+aavdeyev1@cscd-gpu01:~$ cd sharedlinux
+aavdeyev1@cscd-gpu01:~/sharedlinux$ cd prime
+aavdeyev1@cscd-gpu01:~/sharedlinux/prime$ ./findPrime
+-bash: ./findPrime: cannot execute binary file: Exec format error
+aavdeyev1@cscd-gpu01:~/sharedlinux/prime$ gcc main.c prime.c timing.c -lm -lpthread -o findPrimeTestingServer
+aavdeyev1@cscd-gpu01:~/sharedlinux/prime$ ./findPrimeTestingServer
+Usage: prime upbound
+aavdeyev1@cscd-gpu01:~/sharedlinux/prime$ ./findPrimeTestingServer 100
+%%% Find all prime numbers in the range of 0 to 100.
+%%% Serial code executiontime in second is 0.000009
+%%% Parallel code executiontime with 4 threads in second is 0.000303
+%%% The speedup(SerialTimeCost / ParallelTimeCost) when using 4 threads is 0.029921
+%%% The efficiency(Speedup / NumProcessorCores) when using 4 threads is 0.007480
+aavdeyev1@cscd-gpu01:~/sharedlinux/prime$ ls
+findPrime               main.c  makefile  prime.h  timing.c  timing.o
+findPrimeTestingServer  main.o  prime.c   prime.o  timing.h
+aavdeyev1@cscd-gpu01:~/sharedlinux/prime$ ./findPrimeTestingServer 10000
+%%% Find all prime numbers in the range of 0 to 10000.
+%%% Serial code executiontime in second is 0.003070
+%%% Parallel code executiontime with 4 threads in second is 0.001300
+%%% The speedup(SerialTimeCost / ParallelTimeCost) when using 4 threads is 2.361886
+%%% The efficiency(Speedup / NumProcessorCores) when using 4 threads is 0.590471
+aavdeyev1@cscd-gpu01:~/sharedlinux/prime$ ./findPrimeTestingServer 10000000
+%%% Find all prime numbers in the range of 0 to 10000000.
+%%% Serial code executiontime in second is 13.535635
+%%% Parallel code executiontime with 4 threads in second is 4.509565
+%%% The speedup(SerialTimeCost / ParallelTimeCost) when using 4 threads is 3.001539
+%%% The efficiency(Speedup / NumProcessorCores) when using 4 threads is 0.750385
+aavdeyev1@cscd-gpu01:~/sharedlinux/prime$ cd ../../
+aavdeyev1@cscd-gpu01:~$ ls
+d01_prime.zip  Documents  Music       Pictures  sharedlinux  Videos
+Desktop        Downloads  netstorage  Public    Templates
+aavdeyev1@cscd-gpu01:~$ cd sharedlinux
+aavdeyev1@cscd-gpu01:~/sharedlinux$ cd prime
+aavdeyev1@cscd-gpu01:~/sharedlinux/prime$ ./findPrimeTestingServer -10
+Segmentation fault (core dumped)
+aavdeyev1@cscd-gpu01:~/sharedlinux/prime$ ./findPrimeTestingServer
+Usage: prime upbound
+aavdeyev1@cscd-gpu01:~/sharedlinux/prime$ ./findPrimeTestingServer 0
+Usage: prime upbound, you input invalid upbound number!
+aavdeyev1@cscd-gpu01:~/sharedlinux/prime$ client_loop: send disconnect: Broken pipe
+Amelyas-MacBook-Air:~ amelyaavdeyev$ ssh aavdeyev1@146.187.134.46
+
+aavdeyev1@cscd-gpu01:~$ 
+aavdeyev1@cscd-gpu01:~$ ls
+d01_prime.zip  Documents  Music       Pictures  sharedlinux  Videos
+Desktop        Downloads  netstorage  Public    Templates
+aavdeyev1@cscd-gpu01:~$ cd sharedlinux
+aavdeyev1@cscd-gpu01:~/sharedlinux$ cd prime_opt1
+-bash: cd: prime_opt1: No such file or directory
+aavdeyev1@cscd-gpu01:~/sharedlinux$ exit
+logout
+Connection to 146.187.134.46 closed.
+Amelyas-MacBook-Air:~ amelyaavdeyev$ 
+
+
+Last login: Wed Sep 29 00:09:49 2021 from 172.16.2.44
+aavdeyev1@cscd-gpu01:~$ ls
+d01_prime.zip  Documents  Music       Pictures  sharedlinux  Videos
+Desktop        Downloads  netstorage  Public    Templates
+aavdeyev1@cscd-gpu01:~$ cd sharedlinux
+aavdeyev1@cscd-gpu01:~/sharedlinux$ ls
+ 455.code-workspace   enter         prime           ssh_sftp_notes.txt
+ d01_prime.zip       'enter copy'  'prime 2'        vimrc
+ d02_prime_opt1.zip   enter.sh      prime_opt1
+ d03_prime_opt2.zip   launch.json   settings.json
+aavdeyev1@cscd-gpu01:~/sharedlinux$ cd prime_opt1
+aavdeyev1@cscd-gpu01:~/sharedlinux/prime_opt1$ gcc main.c prime.c timing.c -lm -lpthread -o findPrimeTestingServer
+aavdeyev1@cscd-gpu01:~/sharedlinux/prime_opt1$ gcc main.c prime.c timing.c -lm -lpthread -o findPrimeTestingVerbose
+aavdeyev1@cscd-gpu01:~/sharedlinux/prime_opt1$ ./findPrimeTestingVerbose
+Usage: prime upbound
+aavdeyev1@cscd-gpu01:~/sharedlinux/prime_opt1$ ./findPrimeTestingVerbose 100
+%%% Find all prime numbers in the range of 0 to 100.
+%%% Serial code executiontime in second is 0.000007
+Total number of primes in that range is: 25.
+
+%%% Parallel code executiontime with 4 threads in second is 0.000344
+Total number of primes in that range is: 25.
+
+%%% The speedup(SerialTimeCost / ParallelTimeCost) when using 4 threads is 0.020097
+%%% The efficiency(Speedup / NumProcessorCores) when using 4 threads is 0.005024
+0101010100010100010100010000010100000100010100010000010000010100000100010100000100010000010000000100aavdeyev1@cscd-gpu01:~/sharedlinux/prime_opt1$ client_loop: send disconnect: Broken pipe
+Amelyas-MacBook-Air:~ amelyaavdeyev$ 
