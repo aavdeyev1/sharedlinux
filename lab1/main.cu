@@ -15,16 +15,16 @@ __global__ void vecAdd(double *a, double *b, double *c, int n)
         c[id] = a[id] + b[id];
 }
 
-void computePrimes(char results[], bignum s, bignum n){
+// void computePrimes(char results[], bignum s, bignum n){
    
-    bignum i;
+//     bignum i;
 
-    if(s % 2 == 0) s ++;  //make sure s is an odd number
+//     if(s % 2 == 0) s ++;  //make sure s is an odd number
  
-    for(i=s; i< s+n; i = i + 2){
-       results[i]=isPrime(i);
-    }
- }
+//     for(i=s; i< s+n; i = i + 2){
+//        results[i]=isPrime(i);
+//     }
+//  }
 
  __global__ void elementPrime(bignum *a, char *c, int n)
 {
@@ -33,53 +33,53 @@ void computePrimes(char results[], bignum s, bignum n){
  
     // Make sure we do not go out of bounds
     if (id < n)
-        c[id] = a[id] + b[id];
+        c[id] = a[id];
 }
 
-int isPrime(bignum x){
+// int isPrime(bignum x){
 
-    bignum i;
-    bignum lim = (bignum) sqrt(x) + 1;
+//     bignum i;
+//     bignum lim = (bignum) sqrt(x) + 1;
        
-    for(i=2; i<lim; i++){
-       if ( x % i == 0)
-          return 0;
-    }
+//     for(i=2; i<lim; i++){
+//        if ( x % i == 0)
+//           return 0;
+//     }
  
-    return 1;
- }
+//     return 1;
+//  }
  
  
-void initializeArray(char a[], bignum len){
- // init results char array
-    int i;
+// void initializeArray(char a[], bignum len){
+//  // init results char array
+//     int i;
     
-    for(i=0; i<len; i++){
-       a[i]= 0;
-    }
+//     for(i=0; i<len; i++){
+//        a[i]= 0;
+//     }
  
- }
+//  }
  
-void printArray(char a[], int len){
+// void printArray(char a[], int len){
  
-    int i;
+//     int i;
     
-    for(i=0; i<len; i++){
+//     for(i=0; i<len; i++){
     
-       printf("%d ", a[i]);
+//        printf("%d ", a[i]);
  
-    }
+//     }
  
- }
+//  }
  
-int arrSum( char a[], bignum len )
- {
-     int i, s = 0;
-     for( i = 0; i < len; i ++ )
-         s += a[i];
+// int arrSum( char a[], bignum len )
+//  {
+//      int i, s = 0;
+//      for( i = 0; i < len; i ++ )
+//          s += a[i];
  
-     return s;
- }
+//      return s;
+//  }
 
  
 int main( int argc, char* argv[] )
@@ -92,7 +92,7 @@ int main( int argc, char* argv[] )
     }
     // Retrieve N, blockSize from args
     bignum N = (bignum) atoi(argv[1]);
-    bignum blockSize = (bignum) atoi(argv[2])
+    bignum blockSize = (bignum) atoi(argv[2]);
 
     // Size, in bytes, of each vector
     size_t bytes = N*sizeof(bignum);
