@@ -4,6 +4,11 @@
  
 typedef unsigned long long bignum;
 
+void initializeArray(char a[], bignum len);
+int isPrime(bignum x);
+void computePrimes_cpu(char results[], bignum s, bignum n);
+int arrSum(char results[], bignum len);
+
 // CUDA kernel. Each thread takes care of one element of c
 __global__ void vecAdd(double *a, double *b, double *c, int n)
 {
@@ -36,18 +41,18 @@ void computePrimes_cpu(char results[], bignum s, bignum n){
         c[id] = a[id];
 }
 
-// int isPrime(bignum x){
+int isPrime(bignum x){
 
-//     bignum i;
-//     bignum lim = (bignum) sqrt(x) + 1;
+    bignum i;
+    bignum lim = (bignum) sqrt(x) + 1;
        
-//     for(i=2; i<lim; i++){
-//        if ( x % i == 0)
-//           return 0;
-//     }
+    for(i=2; i<lim; i++){
+       if ( x % i == 0)
+          return 0;
+    }
  
-//     return 1;
-//  }
+    return 1;
+ }
  
  
 void initializeArray(char a[], bignum len){
