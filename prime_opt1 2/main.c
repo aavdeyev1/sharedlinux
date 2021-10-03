@@ -24,25 +24,27 @@ int main (int argc, const char * argv[]) {
    double scost, pcost;
       
    initializeArray(results, N);
-   printf("%%%%%% Find all prime numbers in the range of 0 to %llu.\n", N);   
+   printf("%%%%%% Find all prime numbers in the range of 3 to %llu.\n", N);   
  
    then = currentTime();
-   computePrimes(results, 0, N);
+   computePrimes(results, 3, N);
    now = currentTime();
    scost = now - then;
-   printf("%%%%%% Serial code executiontime in second is %lf\n", scost);
+   printf("%%%%%% Serial code execution time in second is %lf\n", scost);
+
+
    printf("Total number of primes in that range is: %d.\n\n", arrSum(results, N + 1));
 
-   initializeArray(results, N);
-   then = currentTime();
-   pcomputePrimes(results, 0, N);
-   now = currentTime();
-   pcost = now - then;
-   printf("%%%%%% Parallel code executiontime with 4 threads in second is %lf\n", pcost);
-   printf("Total number of primes in that range is: %d.\n\n", arrSum(results, N + 1));
+//    initializeArray(results, N);
+//    then = currentTime();
+//    pcomputePrimes(results, 0, N);
+//    now = currentTime();
+//    pcost = now - then;
+//    printf("%%%%%% Parallel code executiontime with 4 threads in second is %lf\n", pcost);
+//    printf("Total number of primes in that range is: %d.\n\n", arrSum(results, N + 1));
    
-   printf("%%%%%% The speedup(SerialTimeCost / ParallelTimeCost) when using 4 threads is %lf\n", scost / pcost); 
-   printf("%%%%%% The efficiency(Speedup / NumProcessorCores) when using 4 threads is %lf\n", scost / pcost / 4); 
+//    printf("%%%%%% The speedup(SerialTimeCost / ParallelTimeCost) when using 4 threads is %lf\n", scost / pcost); 
+//    printf("%%%%%% The efficiency(Speedup / NumProcessorCores) when using 4 threads is %lf\n", scost / pcost / 4); 
 
    //printArray(results, N);
    return 0;

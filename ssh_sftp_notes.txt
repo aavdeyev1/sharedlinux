@@ -373,3 +373,343 @@ Total number of primes in that range is: 25.
 %%% The efficiency(Speedup / NumProcessorCores) when using 4 threads is 0.005024
 0101010100010100010100010000010100000100010100010000010000010100000100010100000100010000010000000100aavdeyev1@cscd-gpu01:~/sharedlinux/prime_opt1$ client_loop: send disconnect: Broken pipe
 Amelyas-MacBook-Air:~ amelyaavdeyev$ 
+
+
+
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+Amelyas-MacBook-Air:~ amelyaavdeyev$ ssh aavdeyev1@146.187.134.46
+ssh: connect to host 146.187.134.46 port 22: Operation timed out
+Amelyas-MacBook-Air:~ amelyaavdeyev$ ssh aavdeyev1@146.187.134.46
+USE OF THIS SYSTEM IS RESTRICTED TO AUTHORIZED EASTERN WASHINGTON UNIVERSITY
+USERS ONLY!! UNAUTHORIZED ACCESS IS PROHIBITED!!
+aavdeyev1@146.187.134.46's password: 
+Permission denied, please try again.
+aavdeyev1@146.187.134.46's password: 
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 4.15.0-154-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Sat Oct  2 15:51:25 PDT 2021
+
+  System load:  0.02               Processes:              226
+  Usage of /:   6.3% of 426.95GB   Users logged in:        3
+  Memory usage: 3%                 IP address for eno1:    146.187.134.46
+  Swap usage:   0%                 IP address for docker0: 172.17.0.1
+
+ * Super-optimized for small spaces - read how we shrank the memory
+   footprint of MicroK8s to make it the smallest full K8s around.
+
+   https://ubuntu.com/blog/microk8s-memory-optimisation
+
+Last login: Wed Sep 29 00:21:45 2021 from 172.16.2.44
+aavdeyev1@cscd-gpu01:~$ ls
+d01_prime.zip  Documents  Music       Pictures  sharedlinux  Videos
+Desktop        Downloads  netstorage  Public    Templates
+aavdeyev1@cscd-gpu01:~$ cd sharedlinux
+aavdeyev1@cscd-gpu01:~/sharedlinux$ git clone https://github.com/aavdeyev1/sharedlinux.git
+Cloning into 'sharedlinux'...
+remote: Enumerating objects: 42, done.
+remote: Counting objects: 100% (42/42), done.
+remote: Compressing objects: 100% (26/26), done.
+remote: Total 42 (delta 15), reused 42 (delta 15), pack-reused 0
+Unpacking objects: 100% (42/42), done.
+aavdeyev1@cscd-gpu01:~/sharedlinux$ ls
+ 455.code-workspace   enter         prime           sharedlinux
+ d01_prime.zip       'enter copy'  'prime 2'        ssh_sftp_notes.txt
+ d02_prime_opt1.zip   enter.sh      prime_opt1      vimrc
+ d03_prime_opt2.zip   launch.json   settings.json
+aavdeyev1@cscd-gpu01:~/sharedlinux$ cd ../
+aavdeyev1@cscd-gpu01:~$ mvdir --h
+
+Command 'mvdir' not found, did you mean:
+
+  command 'mdir' from deb mtools
+  command 'vdir' from deb coreutils
+  command 'mmdir' from deb simh
+  command 'svdir' from deb svtools
+  command 'mkdir' from deb coreutils
+  command 'mvdic' from deb canna-utils
+
+Try: apt install <deb name>
+
+aavdeyev1@cscd-gpu01:~$ mv -r sharedlinux .
+mv: invalid option -- 'r'
+Try 'mv --help' for more information.
+aavdeyev1@cscd-gpu01:~$ mv --help
+Usage: mv [OPTION]... [-T] SOURCE DEST
+  or:  mv [OPTION]... SOURCE... DIRECTORY
+  or:  mv [OPTION]... -t DIRECTORY SOURCE...
+Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.
+
+Mandatory arguments to long options are mandatory for short options too.
+      --backup[=CONTROL]       make a backup of each existing destination file
+  -b                           like --backup but does not accept an argument
+  -f, --force                  do not prompt before overwriting
+  -i, --interactive            prompt before overwrite
+  -n, --no-clobber             do not overwrite an existing file
+If you specify more than one of -i, -f, -n, only the final one takes effect.
+      --strip-trailing-slashes  remove any trailing slashes from each SOURCE
+                                 argument
+  -S, --suffix=SUFFIX          override the usual backup suffix
+  -t, --target-directory=DIRECTORY  move all SOURCE arguments into DIRECTORY
+  -T, --no-target-directory    treat DEST as a normal file
+  -u, --update                 move only when the SOURCE file is newer
+                                 than the destination file or when the
+                                 destination file is missing
+  -v, --verbose                explain what is being done
+  -Z, --context                set SELinux security context of destination
+                                 file to default type
+      --help     display this help and exit
+      --version  output version information and exit
+
+The backup suffix is '~', unless set with --suffix or SIMPLE_BACKUP_SUFFIX.
+The version control method may be selected via the --backup option or through
+the VERSION_CONTROL environment variable.  Here are the values:
+
+  none, off       never make backups (even if --backup is given)
+  numbered, t     make numbered backups
+  existing, nil   numbered if numbered backups exist, simple otherwise
+  simple, never   always make simple backups
+
+GNU coreutils online help: <http://www.gnu.org/software/coreutils/>
+Full documentation at: <http://www.gnu.org/software/coreutils/mv>
+or available locally via: info '(coreutils) mv invocation'
+aavdeyev1@cscd-gpu01:~$ mv sharedlinux Dev
+aavdeyev1@cscd-gpu01:~$ ls
+d01_prime.zip  Dev        Downloads  netstorage  Public     Videos
+Desktop        Documents  Music      Pictures    Templates
+aavdeyev1@cscd-gpu01:~$ cd ls
+-bash: cd: ls: No such file or directory
+aavdeyev1@cscd-gpu01:~$ cd Dev\sharedlinux
+-bash: cd: Devsharedlinux: No such file or directory
+aavdeyev1@cscd-gpu01:~$ cd Dev/sharedlinux
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux$ ls
+ 455.code-workspace   d05_vecAdd.cu   launch.json    'prime_opt1 copy'
+ d01_prime.zip        enter           prime           settings.json
+ d02_prime_opt1.zip  'enter copy'     prime_opt1      ssh_sftp_notes.txt
+ d03_prime_opt2.zip   enter.sh       'prime_opt1 2'   vimrc
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux$ git fetch
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux$ cd "prime_opt1 copy"
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/prime_opt1 copy$ cd ../
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux$ git fetch
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 4 (delta 2), reused 4 (delta 2), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/aavdeyev1/sharedlinux
+   5b64e92..41062fb  master     -> origin/master
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux$ ls
+ 455.code-workspace   d05_vecAdd.cu   launch.json    'prime_opt1 copy'
+ d01_prime.zip        enter           prime           settings.json
+ d02_prime_opt1.zip  'enter copy'     prime_opt1      ssh_sftp_notes.txt
+ d03_prime_opt2.zip   enter.sh       'prime_opt1 2'   vimrc
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux$ git pull
+Updating 5b64e92..41062fb
+Fast-forward
+ .DS_Store                           | Bin 8196 -> 10244 bytes
+ {prime_opt1 copy => lab1}/.DS_Store | Bin
+ {prime_opt1 copy => lab1}/findPrime | Bin
+ {prime_opt1 copy => lab1}/main.c    |   0
+ {prime_opt1 copy => lab1}/main.o    | Bin
+ {prime_opt1 copy => lab1}/makefile  |   0
+ {prime_opt1 copy => lab1}/prime.c   |   0
+ {prime_opt1 copy => lab1}/prime.h   |   0
+ {prime_opt1 copy => lab1}/prime.o   | Bin
+ {prime_opt1 copy => lab1}/timing.c  |   0
+ {prime_opt1 copy => lab1}/timing.h  |   0
+ {prime_opt1 copy => lab1}/timing.o  | Bin
+ enter => old_files/enter            |   0
+ enter copy => old_files/enter copy  |   0
+ enter.sh => old_files/enter.sh      |   0
+ vimrc => old_files/vimrc            |   0
+ 16 files changed, 0 insertions(+), 0 deletions(-)
+ rename {prime_opt1 copy => lab1}/.DS_Store (100%)
+ rename {prime_opt1 copy => lab1}/findPrime (100%)
+ rename {prime_opt1 copy => lab1}/main.c (100%)
+ rename {prime_opt1 copy => lab1}/main.o (100%)
+ rename {prime_opt1 copy => lab1}/makefile (100%)
+ rename {prime_opt1 copy => lab1}/prime.c (100%)
+ rename {prime_opt1 copy => lab1}/prime.h (100%)
+ rename {prime_opt1 copy => lab1}/prime.o (100%)
+ rename {prime_opt1 copy => lab1}/timing.c (100%)
+ rename {prime_opt1 copy => lab1}/timing.h (100%)
+ rename {prime_opt1 copy => lab1}/timing.o (100%)
+ rename enter => old_files/enter (100%)
+ rename enter copy => old_files/enter copy (100%)
+ rename enter.sh => old_files/enter.sh (100%)
+ rename vimrc => old_files/vimrc (100%)
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux$ ls
+ 455.code-workspace   d05_vecAdd.cu   prime           ssh_sftp_notes.txt
+ d01_prime.zip        lab1            prime_opt1
+ d02_prime_opt1.zip   launch.json    'prime_opt1 2'
+ d03_prime_opt2.zip   old_files       settings.json
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux$ cd lab1
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ nvcc -arch=sm_35 -o lab1 lab1.cu 
+gcc: error: lab1.cu: No such file or directory
+gcc: warning: ‘-x c++’ after last input file has no effect
+gcc: fatal error: no input files
+compilation terminated.
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make clean lab1
+makefile:9: *** missing separator (did you mean TAB instead of 8 spaces?).  Stop.
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make clean
+makefile:9: *** missing separator (did you mean TAB instead of 8 spaces?).  Stop.
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git oull
+git: 'oull' is not a git command. See 'git --help'.
+
+The most similar command is
+	pull
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+Already up to date.
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/aavdeyev1/sharedlinux
+   41062fb..6a2bfd4  master     -> origin/master
+Updating 41062fb..6a2bfd4
+Fast-forward
+ lab1/makefile | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make
+make: *** No rule to make target 'main.cu', needed by 'main.o'.  Stop.
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/aavdeyev1/sharedlinux
+   6a2bfd4..beed1c6  master     -> origin/master
+Updating 6a2bfd4..beed1c6
+Fast-forward
+ lab1/makefile | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make
+make: *** No rule to make target 'main.cu', needed by 'main.o'.  Stop.
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ cd ../
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux$ ls
+ 455.code-workspace   d05_vecAdd.cu   prime           ssh_sftp_notes.txt
+ d01_prime.zip        lab1            prime_opt1
+ d02_prime_opt1.zip   launch.json    'prime_opt1 2'
+ d03_prime_opt2.zip   old_files       settings.json
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux$ nvcc -arch=sm_30 -c main.cu
+gcc: error: main.cu: No such file or directory
+gcc: warning: ‘-x c++’ after last input file has no effect
+gcc: fatal error: no input files
+compilation terminated.
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux$ nvcc -arch=sm_30 -c d05_vecAdd.cu
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux$ ls
+ 455.code-workspace   d05_vecAdd.cu   old_files       settings.json
+ d01_prime.zip        d05_vecAdd.o    prime           ssh_sftp_notes.txt
+ d02_prime_opt1.zip   lab1            prime_opt1
+ d03_prime_opt2.zip   launch.json    'prime_opt1 2'
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux$ nvcc -arch=sm_30 o d05_vecAdd.o
+nvcc fatal   : Don't know what to do with 'o'
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux$ nvcc -arch=sm_30 -o d05_vecAdd.o
+nvcc fatal   : No input files specified; use option --help for more information
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux$ nvcc -arch=sm_30 -o d05 d05_vecAdd.o
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux$ ./d05
+final result: 1.000000
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux$ ls
+ 455.code-workspace   d05             launch.json  'prime_opt1 2'
+ d01_prime.zip        d05_vecAdd.cu   old_files     settings.json
+ d02_prime_opt1.zip   d05_vecAdd.o    prime         ssh_sftp_notes.txt
+ d03_prime_opt2.zip   lab1            prime_opt1
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux$ git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/aavdeyev1/sharedlinux
+   beed1c6..3f8fc03  master     -> origin/master
+Updating beed1c6..3f8fc03
+Fast-forward
+ lab1/{main.c => main.cu} | 0
+ lab1/makefile            | 2 +-
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+ rename lab1/{main.c => main.cu} (100%)
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux$ cd lab1
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make
+nvcc -arch=sm_30 -c main.cu
+main.cu(21): error: a value of type "void *" cannot be used to initialize an entity of type "bignum *"
+
+main.cu(22): error: a value of type "void *" cannot be used to initialize an entity of type "char *"
+
+2 errors detected in the compilation of "/tmp/tmpxft_0000370d_00000000-7_main.cpp1.ii".
+makefile:12: recipe for target 'main.o' failed
+make: *** [main.o] Error 2
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+remote: Enumerating objects: 12, done.
+remote: Counting objects: 100% (12/12), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 8 (delta 6), reused 8 (delta 6), pack-reused 0
+Unpacking objects: 100% (8/8), done.
+From https://github.com/aavdeyev1/sharedlinux
+   3f8fc03..b7a41d5  master     -> origin/master
+Updating 3f8fc03..b7a41d5
+Fast-forward
+ lab1/findPrime         | Bin 13556 -> 0 bytes
+ lab1/main.cu           | 131 ++++++++++++++++++++++++++++++++-----------------
+ lab1/main.o            | Bin 2136 -> 0 bytes
+ lab1/makefile          |  13 ++---
+ lab1/prime.o           | Bin 3376 -> 0 bytes
+ lab1/timing.o          | Bin 1052 -> 0 bytes
+ prime_opt1 2/findPrime | Bin 13508 -> 0 bytes
+ prime_opt1 2/main.o    | Bin 2136 -> 0 bytes
+ prime_opt1 2/prime.o   | Bin 3892 -> 0 bytes
+ prime_opt1 2/timing.o  | Bin 1052 -> 0 bytes
+ 10 files changed, 90 insertions(+), 54 deletions(-)
+ delete mode 100755 lab1/findPrime
+ delete mode 100644 lab1/main.o
+ delete mode 100644 lab1/prime.o
+ delete mode 100644 lab1/timing.o
+ delete mode 100755 prime_opt1 2/findPrime
+ delete mode 100644 prime_opt1 2/main.o
+ delete mode 100644 prime_opt1 2/prime.o
+ delete mode 100644 prime_opt1 2/timing.o
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make
+makefile:9: *** missing separator (did you mean TAB instead of 8 spaces?).  Stop.
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/aavdeyev1/sharedlinux
+   b7a41d5..a34c434  master     -> origin/master
+Updating b7a41d5..a34c434
+Fast-forward
+ lab1/makefile | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make
+makefile:9: *** missing separator (did you mean TAB instead of 8 spaces?).  Stop.
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/aavdeyev1/sharedlinux
+   a34c434..c3ef257  master     -> origin/master
+Updating a34c434..c3ef257
+Fast-forward
+ lab1/makefile | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make
+nvcc -arch=sm_30 -c main.cu
+g++ -c -x c++ timing.c -I.
+nvcc -arch=sm_30 -o lab1 timing.o main.o
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ ls
+lab1  main.cu  main.o  makefile  prime.c  prime.h  timing.c  timing.h  timing.o
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ ./lab1
+final result: 1.000000
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ 
