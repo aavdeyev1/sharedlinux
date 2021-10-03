@@ -15,16 +15,16 @@ __global__ void vecAdd(double *a, double *b, double *c, int n)
         c[id] = a[id] + b[id];
 }
 
-// void computePrimes(char results[], bignum s, bignum n){
+void computePrimes_cpu(char results[], bignum s, bignum n){
    
-//     bignum i;
+    bignum i;
 
-//     if(s % 2 == 0) s ++;  //make sure s is an odd number
+    if(s % 2 == 0) s ++;  //make sure s is an odd number
  
-//     for(i=s; i< s+n; i = i + 2){
-//        results[i]=isPrime(i);
-//     }
-//  }
+    for(i=s; i< s+n; i = i + 2){
+       results[i]=isPrime(i);
+    }
+ }
 
  __global__ void elementPrime(bignum *a, char *c, int n)
 {
@@ -50,15 +50,15 @@ __global__ void vecAdd(double *a, double *b, double *c, int n)
 //  }
  
  
-// void initializeArray(char a[], bignum len){
-//  // init results char array
-//     int i;
+void initializeArray(char a[], bignum len){
+ // init results char array
+    int i;
     
-//     for(i=0; i<len; i++){
-//        a[i]= 0;
-//     }
+    for(i=0; i<len; i++){
+       a[i]= 0;
+    }
  
-//  }
+ }
  
 // void printArray(char a[], int len){
  
@@ -72,14 +72,14 @@ __global__ void vecAdd(double *a, double *b, double *c, int n)
  
 //  }
  
-// int arrSum( char a[], bignum len )
-//  {
-//      int i, s = 0;
-//      for( i = 0; i < len; i ++ )
-//          s += a[i];
+int arrSum( char a[], bignum len )
+ {
+     int i, s = 0;
+     for( i = 0; i < len; i ++ )
+         s += a[i];
  
-//      return s;
-//  }
+     return s;
+ }
 
  
 int main( int argc, char* argv[] )
@@ -115,8 +115,8 @@ int main( int argc, char* argv[] )
 
     // Init timing vars
     double now_cpu, then_cpu;
-    double now_gpu, then_gpu;
-    double cost_cpu, cost_gpu;
+    // double now_gpu, then_gpu;
+    double cost_cpu; // cost_gpu;
   
 
     free(h_a);
@@ -169,17 +169,17 @@ int main( int argc, char* argv[] )
     // double now, then;
     // double scost, pcost;
        
-    // initializeArray(results, N);
-    // printf("%%%%%% Find all prime numbers in the range of 3 to %llu.\n", N);   
+    initializeArray(results, N);
+    printf("%%%%%% Find all prime numbers in the range of 3 to %llu.\n", N);   
   
-    // then = currentTime();
-    // h_computePrimes(results, 3, N);
-    // now = currentTime();
-    // scost = now - then;
-    // printf("%%%%%% Serial code execution time in second is %lf\n", scost);
+    then_cpu = currentTime();
+    computePrimes_cpu(results, 3, N);
+    now_cpu = currentTime();
+    cost_cpu = now_cpu - then_cpu;
+    printf("%%%%%% Serial code execution time in second is %lf\n", cost_cpu);
  
  
-    // printf("Total number of primes in that range is: %d.\n\n", arrSum(results, N + 1));
+    printf("Total number of primes in that range is: %d.\n\n", arrSum(results, N + 1));
     printf("Cool Beans\n");
     return 0;
 }
