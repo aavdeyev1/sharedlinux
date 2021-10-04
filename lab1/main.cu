@@ -179,6 +179,11 @@ int main( int argc, char* argv[] )
 
     initializeArray(h_results, N);
     printf("\n%%%%%% GPU: Find all prime numbers in the range of 3 to %llu.\n", N);   
+
+    printf("GPU ARRAY 1.0\n")
+    printArray(h_a, N)
+    printf("GPU ARRAY 1.5\n")
+    printArray(h_results, N)
  
     then_gpu = currentTime();
 
@@ -198,6 +203,8 @@ int main( int argc, char* argv[] )
  
     // Copy array back to host
     cudaMemcpy( h_results, d_results, bytes, cudaMemcpyDeviceToHost );
+    printf("GPU ARRAY 2.0\n")
+    printArray(h_results, N)
  
     now_gpu = currentTime();
     cost_gpu = now_gpu - then_gpu;
