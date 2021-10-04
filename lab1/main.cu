@@ -48,17 +48,17 @@ void computePrimes_cpu(char results[], bignum s, bignum n){
     }
  }
 
- __global__ void elementPrime(bignum *a, char *c, int n)
+ __global__ void elementPrime(bignum *a, char *results, int n)
 {
     // Get our global thread ID
     int id = blockIdx.x*blockDim.x+threadIdx.x;
     
-    if(*a == 0 | *a == 1 | *a == 2 or *a == 3);
+    // if(*a == 0 | *a == 1 | *a == 2 or *a == 3);
     if(*a % 2 == 0);  //make sure a is an odd number
 
     // Make sure we do not go out of bounds
     if (id < n)
-        c[id] = d_isPrime(*a);
+        results[id] = d_isPrime(*a);
 
 }
 
