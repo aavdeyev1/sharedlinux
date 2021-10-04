@@ -154,18 +154,22 @@ int main( int argc, char* argv[] )
   
     
     h_results[0] = 0;
+    h_a[0] = 0;
     h_results[1] = 0;
+    h_a[1] = 1;
     h_results[2] = 1;
+    h_a[2] = 2;
     h_results[3] = 1;
+    h_a[3] = 1;
 
     bignum i;
     // Initialize vector on host
-    for( i = 3; i < N; i++ ) {
+    for( i = 4; i < N + 1; i++ ) {
         h_a[i] = i;
         h_results[i] = 0;
         // results[i] = 0;
     }
-    printArray(h_results, N - 3);
+    // printArray(h_results, N - 3);
  
     then_gpu = currentTime();
 
