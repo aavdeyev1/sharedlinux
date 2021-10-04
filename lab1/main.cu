@@ -35,13 +35,16 @@ void computePrimes_cpu(char results[], bignum s, bignum n){
 {
     // Get our global thread ID
     int id = blockIdx.x*blockDim.x+threadIdx.x;
- 
+    
+    if(&a % 2 == 0) s ++;  //make sure a is an odd number
+
     // Make sure we do not go out of bounds
     if (id < n)
-        c[id] = a[id];
+        c[id] = isPrime(&a);
+
 }
 
-int isPrime(bignum x){
+__device__ int isPrime(bignum x){
 
     bignum i;
     bignum lim = (bignum) sqrt(x) + 1;
@@ -54,6 +57,18 @@ int isPrime(bignum x){
     return 1;
  }
  
+ __host__ int isPrime(bignum x){
+
+    bignum i;
+    bignum lim = (bignum) sqrt(x) + 1;
+       
+    for(i=2; i<lim; i++){
+       if ( x % i == 0)
+          return 0;
+    }
+ 
+    return 1;
+ }
  
 void initializeArray(char a[], bignum len){
  // init results char array
@@ -97,7 +112,7 @@ int main( int argc, char* argv[] )
     }
     // Retrieve N, blockSize from args
     bignum N = (bignum) atoi(argv[1]);
-    bignum blockSize = (bignum) atoi(argv[2]);
+    int blockSize = (int) atoi(argv[2]);
 
     // Size, in bytes, of each vector
     size_t bytes = N*sizeof(bignum);
@@ -114,51 +129,43 @@ int main( int argc, char* argv[] )
     h_a = (bignum*)malloc(bytes);
     h_results = (char*)malloc((N + 1) * sizeof(char));
 
+    // Init timing vars
+    double now_cpu, then_cpu;
+    double now_gpu, then_gpu;
+    double cost_cpu, cost_gpu;
+  
+    // Allocate for CPU proc
+    char *results = malloc((N + 1) * sizeof(char));
+
+    int i;
+    // Initialize vector on host
+    for( i = 3; i < N; i++ ) {
+        h_a[i] = i;
+        h_results[i] = 0
+        results[i] = 0
+    }
+ 
+    then_gpu = currentTime();
+
     // Allocate for device
     cudaMalloc(&d_a, bytes);
     cudaMalloc(&d_results, (N + 1) * sizeof(char));
 
-    // Init timing vars
-    double now_cpu, then_cpu;
-    // double now_gpu, then_gpu;
-    double cost_cpu; // cost_gpu;
-  
+    // Copy host vector to device
+    cudaMemcpy( d_a, h_a, bytes, cudaMemcpyHostToDevice);
+ 
+    // Number of thread blocks in grid
+    gridSize = (int)ceil((float)n/blockSize);
+ 
+    // Execute the kernel
+    vecAdd<<<gridSize, blockSize>>>(d_a, d_b, d_c, n);
+ 
+    // Copy array back to host
+    cudaMemcpy( h_results, d_results, bytes, cudaMemcpyDeviceToHost );
+ 
+    now_gpu = currentTime();
+    cost_gpu = now_gpu - then_gpu;
 
-    free(h_a);
-    free(h_results);
-
-    cudaFree(d_a);
-    cudaFree(d_results);
-    // int i;
-    // // Initialize vector on host
-    // for( i = 3; i < N; i++ ) {
-    //     h_a[i] = i;
-    //     h_results[i] = 0
-    // }
- 
-    // // Copy host vector to device
-    // cudaMemcpy( d_a, h_a, bytes, cudaMemcpyHostToDevice);
- 
-    // int blockSize, gridSize;
- 
-    // // Number of threads in each thread block
-    // blockSize = 1024;
- 
-    // // Number of thread blocks in grid
-    // gridSize = (int)ceil((float)n/blockSize);
- 
-    // // Execute the kernel
-    // vecAdd<<<gridSize, blockSize>>>(d_a, d_b, d_c, n);
- 
-    // // Copy array back to host
-    // cudaMemcpy( h_c, d_c, bytes, cudaMemcpyDeviceToHost );
- 
-    // // Sum up vector c and print result divided by n, this should equal 1 without error
-    // double sum = 0;
-    // for(i=0; i<n; i++)
-    //     sum += h_c[i];
-    // printf("final result: %f\n", sum/n);
- 
     // // Release device memory
     // cudaFree(d_a);
     // cudaFree(d_b);
@@ -184,7 +191,16 @@ int main( int argc, char* argv[] )
     printf("%%%%%% Serial code execution time in second is %lf\n", cost_cpu);
  
  
-    printf("Total number of primes in that range is: %d.\n\n", arrSum(results, N + 1));
+    printf("CPU: Total number of primes in that range is: %d.\n\n", arrSum(h_results, N + 1) + 2);
+    printf("GPU: Total number of primes in that range is: %d.\n\n", arrSum(results, N + 1) + 2);
     printf("Cool Beans\n");
+
+    free(h_a);
+    free(h_results);
+    free(results)
+
+    cudaFree(d_a);
+    cudaFree(d_results);
+
     return 0;
 }
