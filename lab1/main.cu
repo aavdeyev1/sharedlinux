@@ -9,10 +9,12 @@ void initializeArray(char a[], bignum len);
 __device__ int d_isPrime(bignum x);
 void computePrimes_cpu(char results[], bignum s, bignum n);
 int arrSum(char results[], bignum len);
-__host__ int h_isPrime(bignum x)
+__host__ int h_isPrime(bignum x);
+__host__ double currentTime();
 
 
-__host__ double currentTime(){
+__host__ double currentTime()
+{
 
    struct timeval now;
    gettimeofday(&now, NULL);
@@ -47,11 +49,11 @@ void computePrimes_cpu(char results[], bignum s, bignum n){
     // Get our global thread ID
     int id = blockIdx.x*blockDim.x+threadIdx.x;
     
-    if((int)a % 2 == 0);  //make sure a is an odd number
+    if(*a % 2 == 0);  //make sure a is an odd number
 
     // Make sure we do not go out of bounds
     if (id < n)
-        c[id] = d_isPrime(&a);
+        c[id] = d_isPrime(*a);
 
 }
 
