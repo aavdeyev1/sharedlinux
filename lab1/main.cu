@@ -165,7 +165,7 @@ int main( int argc, char* argv[] )
         h_results[i] = 0;
         // results[i] = 0;
     }
-    printArray(h_results, N - 3)
+    printArray(h_results, N - 3);
  
     then_gpu = currentTime();
 
@@ -191,7 +191,7 @@ int main( int argc, char* argv[] )
 
     // print output GPU
     printf("%%%%%% Parallel code execution time in second is %lf\n", cost_gpu);
-    printf("GPU: Total number of primes in that range is: %d.\n\n", arrSum(results, N + 1));
+    printf("GPU: Total number of primes in that range is: %d.\n\n", arrSum(h_results, N + 1));
 
 
 
