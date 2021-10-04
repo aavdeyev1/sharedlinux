@@ -153,6 +153,7 @@ int main( int argc, char* argv[] )
   
     // Allocate for CPU proc
     char *results = (char *)malloc((N + 1) * sizeof(char));
+    printArray(results[]);
 
     int i;
     // Initialize vector on host
