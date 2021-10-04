@@ -163,7 +163,7 @@ int main( int argc, char* argv[] )
     // h_results[3] = 1;
     // h_a[3] = 3;
 
-    bignum i;
+    // bignum i;
     // Initialize vector on host
     // for( i = 4; i < N + 1; i++ ) {
     //     h_a[i] = i;
