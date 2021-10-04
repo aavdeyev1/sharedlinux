@@ -225,6 +225,7 @@ int main( int argc, char* argv[] )
    
     //     results[i]=h_isPrime(i);
     // }
+    initializeArray(h_results, N);
     computePrimes_cpu(h_results, 3, N + 1);
     now_cpu = currentTime();
     cost_cpu = now_cpu - then_cpu;
