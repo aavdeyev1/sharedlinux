@@ -184,6 +184,10 @@ int main( int argc, char* argv[] )
     now_gpu = currentTime();
     cost_gpu = now_gpu - then_gpu;
 
+
+
+
+    
     // Allocate for CPU proc
     char *results = (char*)malloc((N + 1) * sizeof(char));
     printArray(results, N);   
@@ -195,13 +199,12 @@ int main( int argc, char* argv[] )
 
     
 
-    for(long i = 2; i < ceil(N/2); i++){
-		long num = (i * 2) - 1;
-		results[i*2]=0;
-		//is num prime
-		results[num] = h_isPrime(a[num]);
+    bignum i;
 
-	}
+   for(i=s; i< s+N; i++){
+   
+      results[i]=h_isPrime(i);
+   }
     // computePrimes_cpu(results, 3, N - 3);
     now_cpu = currentTime();
     cost_cpu = now_cpu - then_cpu;
