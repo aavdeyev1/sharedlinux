@@ -1,0 +1,494 @@
+Last login: Sun Oct  3 15:19:31 on ttys001
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+Amelyas-MacBook-Air:~ amelyaavdeyev$ ssh aavdeyev1@146.187.134.46
+USE OF THIS SYSTEM IS RESTRICTED TO AUTHORIZED EASTERN WASHINGTON UNIVERSITY
+USERS ONLY!! UNAUTHORIZED ACCESS IS PROHIBITED!!
+aavdeyev1@146.187.134.46's password: 
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 4.15.0-154-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Sun Oct  3 23:21:22 PDT 2021
+
+  System load:  0.0                Processes:              215
+  Usage of /:   6.3% of 426.95GB   Users logged in:        1
+  Memory usage: 3%                 IP address for eno1:    146.187.134.46
+  Swap usage:   0%                 IP address for docker0: 172.17.0.1
+
+ * Super-optimized for small spaces - read how we shrank the memory
+   footprint of MicroK8s to make it the smallest full K8s around.
+
+   https://ubuntu.com/blog/microk8s-memory-optimisation
+
+Last login: Sun Oct  3 15:19:50 2021 from 172.16.2.44
+
+aavdeyev1@cscd-gpu01:~$ 
+aavdeyev1@cscd-gpu01:~$ ls
+d01_prime.zip  Dev        Downloads  netstorage  Public     Videos
+Desktop        Documents  Music      Pictures    Templates
+aavdeyev1@cscd-gpu01:~$ cd Dev/sharedlinux/lab1
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make
+nvcc -arch=sm_30 -c main.cu
+main.cu(177): error: identifier "results" is undefined
+
+main.cu(180): error: identifier "currentTime" is undefined
+
+2 errors detected in the compilation of "/tmp/tmpxft_0000263a_00000000-7_main.cpp1.ii".
+makefile:12: recipe for target 'main.o' failed
+make: *** [main.o] Error 2
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/aavdeyev1/sharedlinux
+   fccc142..b52dddf  master     -> origin/master
+Updating fccc142..b52dddf
+Fast-forward
+ lab1/main.cu | 98 +++++++++++++++++++++++++++++++++++-------------------------
+ 1 file changed, 57 insertions(+), 41 deletions(-)
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make
+nvcc -arch=sm_30 -c main.cu
+main.cu(39): error: expression must have integral or enum type
+
+main.cu(39): error: identifier "s" is undefined
+
+main.cu(43): error: argument of type "bignum **" is incompatible with parameter of type "bignum"
+
+main.cu(47): warning: a __host__ function("isPrime") redeclared with __device__, hence treated as a __host__ __device__ function
+
+main.cu(60): error: function "isPrime" has already been defined
+
+main.cu(138): error: a value of type "void *" cannot be used to initialize an entity of type "char *"
+
+main.cu(145): error: expected a ";"
+
+main.cu(148): error: identifier "currentTime" is undefined
+
+main.cu(158): error: identifier "gridSize" is undefined
+
+main.cu(158): error: identifier "n" is undefined
+
+main.cu(161): error: identifier "d_b" is undefined
+
+main.cu(161): error: identifier "d_c" is undefined
+
+main.cu(161): error: argument of type "bignum *" is incompatible with parameter of type "double *"
+
+main.cu(202): error: expected a ";"
+
+main.cu(135): warning: variable "cost_gpu" was set but never used
+
+13 errors detected in the compilation of "/tmp/tmpxft_00002657_00000000-7_main.cpp1.ii".
+makefile:12: recipe for target 'main.o' failed
+make: *** [main.o] Error 2
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/aavdeyev1/sharedlinux
+   b52dddf..feb905d  master     -> origin/master
+Updating b52dddf..feb905d
+Fast-forward
+ lab1/main.cu | 34 +++++++++++++++++++++++-----------
+ 1 file changed, 23 insertions(+), 11 deletions(-)
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make clean
+rm -r *.o lab1
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make
+nvcc -arch=sm_30 -c main.cu
+main.cu(40): error: identifier "h_isPrime" is undefined
+
+main.cu(49): error: expression must have integral or enum type
+
+main.cu(53): error: argument of type "bignum *" is incompatible with parameter of type "bignum"
+
+main.cu(57): warning: a __host__ function("d_isPrime") redeclared with __device__, hence treated as a __host__ __device__ function
+
+main.cu(214): error: expected a ";"
+
+4 errors detected in the compilation of "/tmp/tmpxft_000029f7_00000000-7_main.cpp1.ii".
+makefile:12: recipe for target 'main.o' failed
+make: *** [main.o] Error 2
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/aavdeyev1/sharedlinux
+   feb905d..da1a099  master     -> origin/master
+Updating feb905d..da1a099
+Fast-forward
+ lab1/main.cu | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make clean
+rm -r *.o lab1
+rm: cannot remove '*.o': No such file or directory
+rm: cannot remove 'lab1': No such file or directory
+makefile:18: recipe for target 'clean' failed
+make: *** [clean] Error 1
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make
+nvcc -arch=sm_30 -c main.cu
+main.cu(15): error: attributes are not permitted in a function definition
+
+main.cu(15): error: expected a "{"
+
+main.cu(50): warning: conversion from pointer to smaller integer
+
+main.cu(54): error: argument of type "bignum **" is incompatible with parameter of type "bignum"
+
+main.cu(71): error: function "h_isPrime" has already been defined
+
+main.cu(159): error: identifier "currentTime" is undefined
+
+5 errors detected in the compilation of "/tmp/tmpxft_00002d1c_00000000-7_main.cpp1.ii".
+makefile:12: recipe for target 'main.o' failed
+make: *** [main.o] Error 2
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+Already up to date.
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/aavdeyev1/sharedlinux
+   da1a099..fb9653d  master     -> origin/master
+Updating da1a099..fb9653d
+Fast-forward
+ lab1/main.cu | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make
+nvcc -arch=sm_30 -c main.cu
+main.cu(63) (col. 12): error: calling a __host__ function("std::sqrt<unsigned long long> ") from a __device__ function("d_isPrime") is not allowed
+
+1 error detected in the compilation of "/tmp/tmpxft_000030b6_00000000-7_main.cpp1.ii".
+makefile:12: recipe for target 'main.o' failed
+make: *** [main.o] Error 2
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/aavdeyev1/sharedlinux
+   fb9653d..4732976  master     -> origin/master
+Updating fb9653d..4732976
+Fast-forward
+ lab1/main.cu | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make
+nvcc -arch=sm_30 -c main.cu
+main.cu(63) (col. 12): error: calling a __host__ function("std::sqrt<unsigned long long> ") from a __device__ function("d_isPrime") is not allowed
+
+1 error detected in the compilation of "/tmp/tmpxft_000031e5_00000000-7_main.cpp1.ii".
+makefile:12: recipe for target 'main.o' failed
+make: *** [main.o] Error 2
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/aavdeyev1/sharedlinux
+   4732976..8e3c595  master     -> origin/master
+Updating 4732976..8e3c595
+Fast-forward
+ lab1/main.cu | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make
+nvcc -arch=sm_30 -c main.cu
+g++ -c -x c++ timing.c -I.
+nvcc -arch=sm_30 -o lab1 timing.o main.o
+main.o: In function `currentTime()':
+tmpxft_00003225_00000000-4_main.cudafe1.cpp:(.text+0x16): multiple definition of `currentTime()'
+timing.o:timing.c:(.text+0x0): first defined here
+collect2: error: ld returned 1 exit status
+makefile:9: recipe for target 'lab1' failed
+make: *** [lab1] Error 1
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/aavdeyev1/sharedlinux
+   8e3c595..d8c511f  master     -> origin/master
+Updating 8e3c595..d8c511f
+Fast-forward
+ lab1/main.cu | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make
+nvcc -arch=sm_30 -c main.cu
+main.cu(161): error: identifier "currentTime" is undefined
+
+1 error detected in the compilation of "/tmp/tmpxft_00003312_00000000-7_main.cpp1.ii".
+makefile:12: recipe for target 'main.o' failed
+make: *** [main.o] Error 2
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ nvcc -arch=sm_30 -c main.cu
+main.cu(161): error: identifier "currentTime" is undefined
+
+1 error detected in the compilation of "/tmp/tmpxft_0000333f_00000000-7_main.cpp1.ii".
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+remote: Enumerating objects: 11, done.
+remote: Counting objects: 100% (11/11), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 6 (delta 4), reused 6 (delta 4), pack-reused 0
+Unpacking objects: 100% (6/6), done.
+From https://github.com/aavdeyev1/sharedlinux
+   d8c511f..cc2d57b  master     -> origin/master
+Updating d8c511f..cc2d57b
+Fast-forward
+ lab1/main.cu  | 16 ++++++++--------
+ lab1/timing.c |  2 +-
+ lab1/timing.h |  2 +-
+ 3 files changed, 10 insertions(+), 10 deletions(-)
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+Already up to date.
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make
+nvcc -arch=sm_30 -c main.cu
+g++ -c -x c++ timing.c -I.
+nvcc -arch=sm_30 -o lab1 timing.o main.o
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ ./lab1 10 256
+%%% Find all prime numbers in the range of 3 to 10.
+%%% Serial code execution time in second is 0.000000
+%%% Paralel code execution time in second is 1.850792
+CPU: Total number of primes in that range is: 2.
+
+GPU: Total number of primes in that range is: 5.
+
+Cool Beans
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make clean
+rm -r *.o lab1
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/aavdeyev1/sharedlinux
+   cc2d57b..4f0d570  master     -> origin/master
+Updating cc2d57b..4f0d570
+Fast-forward
+ lab1/main.cu | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make
+nvcc -arch=sm_30 -c main.cu
+g++ -c -x c++ timing.c -I.
+nvcc -arch=sm_30 -o lab1 timing.o main.o
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ ./lab1 10 256
+%%% Find all prime numbers in the range of 3 to 10.
+%%% Serial code execution time in second is 0.000000
+%%% Paralel code execution time in second is 1.799104
+CPU: Total number of primes in that range is: 0.
+
+GPU: Total number of primes in that range is: 3.
+
+Cool Beans
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/aavdeyev1/sharedlinux
+   4f0d570..b569695  master     -> origin/master
+Updating 4f0d570..b569695
+Fast-forward
+ lab1/main.cu | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make clean
+rm -r *.o lab1
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make
+nvcc -arch=sm_30 -c main.cu
+main.cu(41): warning: too many characters in character literal -- extra leading characters ignored
+
+main.cu(41): error: argument of type "int" is incompatible with parameter of type "const char *"
+
+main.cu(43): error: expected a ";"
+
+main.cu(46): warning: parsing restarts here after previous syntax error
+
+main.cu(38): warning: variable "i" was declared but never referenced
+
+2 errors detected in the compilation of "/tmp/tmpxft_00003738_00000000-7_main.cpp1.ii".
+makefile:12: recipe for target 'main.o' failed
+make: *** [main.o] Error 2
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/aavdeyev1/sharedlinux
+   b569695..d94225b  master     -> origin/master
+Updating b569695..d94225b
+Fast-forward
+ lab1/main.cu | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make
+nvcc -arch=sm_30 -c main.cu
+main.cu: In function ‘void computePrimes_cpu(char*, bignum, bignum)’:
+main.cu:41:22: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘bignum {aka long long unsigned int}’ [-Wformat=]
+     printf("here %d\n", s);
+                      ^
+g++ -c -x c++ timing.c -I.
+nvcc -arch=sm_30 -o lab1 timing.o main.o
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/aavdeyev1/sharedlinux
+   d94225b..e11e7e2  master     -> origin/master
+Updating d94225b..e11e7e2
+Fast-forward
+ lab1/main.cu | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make
+nvcc -arch=sm_30 -c main.cu
+nvcc -arch=sm_30 -o lab1 timing.o main.o
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ ./lab1 10 256
+%%% Find all prime numbers in the range of 3 to 10.
+here 3
+%%% Serial code execution time in second is 0.000001
+%%% Paralel code execution time in second is 1.835593
+CPU: Total number of primes in that range is: 0.
+
+GPU: Total number of primes in that range is: 3.
+
+Cool Beans
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+Already up to date.
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/aavdeyev1/sharedlinux
+   e11e7e2..26fb263  master     -> origin/master
+Updating e11e7e2..26fb263
+Fast-forward
+ lab1/main.cu | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make
+nvcc -arch=sm_30 -c main.cu
+nvcc -arch=sm_30 -o lab1 timing.o main.o
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ ./lab1 10 256
+%%% Find all prime numbers in the range of 3 to 10.
+here 3
+here 3
+here 3
+here 3
+here 3
+%%% Serial code execution time in second is 0.000006
+%%% Paralel code execution time in second is 1.801972
+CPU: Total number of primes in that range is: 0.
+
+GPU: Total number of primes in that range is: 3.
+
+Cool Beans
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+remote: Enumerating objects: 12, done.
+remote: Counting objects: 100% (12/12), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 8 (delta 4), reused 8 (delta 4), pack-reused 0
+Unpacking objects: 100% (8/8), done.
+From https://github.com/aavdeyev1/sharedlinux
+   26fb263..51b5bd2  master     -> origin/master
+Updating 26fb263..51b5bd2
+Fast-forward
+ .DS_Store           | Bin 10244 -> 8196 bytes
+ .vscode/launch.json |  21 +++++++++++++++++++++
+ .vscode/tasks.json  |  27 +++++++++++++++++++++++++++
+ lab1/main.cu        |   4 ++--
+ 4 files changed, 50 insertions(+), 2 deletions(-)
+ create mode 100644 .vscode/launch.json
+ create mode 100644 .vscode/tasks.json
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make
+nvcc -arch=sm_30 -c main.cu
+nvcc -arch=sm_30 -o lab1 timing.o main.o
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ ./lab1 10 256
+%%% Find all prime numbers in the range of 3 to 10.
+here 1
+here 3
+here 5
+here 7
+here 9
+%%% Serial code execution time in second is 0.000006
+%%% Paralel code execution time in second is 1.797889
+CPU: Total number of primes in that range is: 0.
+
+GPU: Total number of primes in that range is: 4.
+
+Cool Beans
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+Already up to date.
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/aavdeyev1/sharedlinux
+   51b5bd2..5365474  master     -> origin/master
+Updating 51b5bd2..5365474
+Fast-forward
+ lab1/main.cu | 20 +++-----------------
+ 1 file changed, 3 insertions(+), 17 deletions(-)
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make
+nvcc -arch=sm_30 -c main.cu
+nvcc -arch=sm_30 -o lab1 timing.o main.o
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ ./lab1 10 256
+%%% Find all prime numbers in the range of 3 to 10.
+here 3 []
+here 5 []
+here 7 []
+here 9 []
+here 11 []
+%%% Serial code execution time in second is 0.000007
+%%% Paralel code execution time in second is 1.822415
+CPU: Total number of primes in that range is: 0.
+
+GPU: Total number of primes in that range is: 3.
+
+Cool Beans
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 4 (delta 3), reused 4 (delta 3), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+From https://github.com/aavdeyev1/sharedlinux
+   5365474..7e0867c  master     -> origin/master
+Updating 5365474..7e0867c
+Fast-forward
+ lab1/main.cu | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ make
+nvcc -arch=sm_30 -c main.cu
+nvcc -arch=sm_30 -o lab1 timing.o main.o
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ ./lab1 10 256
+%%% Find all prime numbers in the range of 3 to 10.
+here 3 []
+here 5 []
+here 7 []
+here 9 []
+%%% Serial code execution time in second is 0.000007
+%%% Paralel code execution time in second is 1.801554
+CPU: Total number of primes in that range is: 0.
+
+GPU: Total number of primes in that range is: 3.
+
+Cool Beans
+aavdeyev1@cscd-gpu01:~/Dev/sharedlinux/lab1$ 

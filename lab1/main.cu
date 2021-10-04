@@ -39,7 +39,7 @@ void computePrimes_cpu(char results[], bignum s, bignum n){
 
     if(s % 2 == 0) s ++;  //make sure s is an odd number
     
- 
+    printArray(results[])
     for(i=s; i< s+n; i = i + 2){
         
         results[i]=h_isPrime(i);
@@ -65,7 +65,7 @@ __device__ int d_isPrime(bignum x){
     bignum i;
     // bignum lim = (bignum) sqrt(x) + 1;
        
-    for(i=2; (i+1)*(i+1)<x; i = i + 2){
+    for(i=2; (i-1)*(i-1)<x; i = i + 2){
        if ( x % i == 0)
           return 0;
     }
@@ -96,17 +96,18 @@ void initializeArray(char a[], bignum len){
  
  }
  
-// void printArray(char a[], int len){
+
+ void printArray(char a[], int len){
  
-//     int i;
+    int i;
     
-//     for(i=0; i<len; i++){
+    for(i=0; i<len; i++){
     
-//        printf("%d ", a[i]);
+       printf("%d ", a[i]);
  
-//     }
+    }
  
-//  }
+ }
  
 int arrSum( char a[], bignum len )
  {
