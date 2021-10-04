@@ -41,7 +41,7 @@ void computePrimes_cpu(char results[], bignum s, bignum n){
     
  
     for(i=s; i< s+n; i = i + 2){
-        printf("here %llu\n", s);
+        printf("here %llu\n", i);
         results[i]=h_isPrime(i);
     }
  }
@@ -201,7 +201,7 @@ int main( int argc, char* argv[] )
     printf("%%%%%% Find all prime numbers in the range of 3 to %llu.\n", N);   
   
     then_cpu = currentTime();
-    computePrimes_cpu(results, 3, N);
+    computePrimes_cpu(results, 0, N);
     now_cpu = currentTime();
     cost_cpu = now_cpu - then_cpu;
     printf("%%%%%% Serial code execution time in second is %lf\n", cost_cpu);
