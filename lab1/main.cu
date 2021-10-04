@@ -11,6 +11,7 @@ void computePrimes_cpu(char results[], bignum s, bignum n);
 int arrSum(char results[], bignum len);
 __host__ int h_isPrime(bignum x);
 __host__ double currentTime();
+void printArray(char a[], int len);
 
 
 __host__ double currentTime()
