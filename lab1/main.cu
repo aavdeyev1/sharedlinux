@@ -53,6 +53,7 @@ void computePrimes_cpu(char results[], bignum s, bignum n){
     // Get our global thread ID
     int id = blockIdx.x*blockDim.x+threadIdx.x;
     
+    if(*a == 0 | *a == 1 | *a == 2 or *a == 3);
     if(*a % 2 == 0);  //make sure a is an odd number
 
     // Make sure we do not go out of bounds
@@ -153,23 +154,31 @@ int main( int argc, char* argv[] )
     double cost_cpu, cost_gpu;
   
     
-    h_results[0] = 0;
-    h_a[0] = 0;
-    h_results[1] = 0;
-    h_a[1] = 1;
-    h_results[2] = 1;
-    h_a[2] = 2;
-    h_results[3] = 1;
-    h_a[3] = 1;
+    // h_results[0] = 0;
+    // h_a[0] = 0;
+    // h_results[1] = 0;
+    // h_a[1] = 1;
+    // h_results[2] = 1;
+    // h_a[2] = 2;
+    // h_results[3] = 1;
+    // h_a[3] = 3;
 
     bignum i;
     // Initialize vector on host
-    for( i = 4; i < N + 1; i++ ) {
-        h_a[i] = i;
-        h_results[i] = 0;
-        // results[i] = 0;
-    }
+    // for( i = 4; i < N + 1; i++ ) {
+    //     h_a[i] = i;
+    //     h_results[i] = 0;
+    //     // results[i] = 0;
+    // }
     // printArray(h_results, N - 3);
+
+    h_results[0] = 0;
+    h_results[1] = 0;
+    h_results[2] = 1;
+    h_results[3] = 1;
+
+    initializeArray(h_results, N);
+    printf("\n%%%%%% GPU: Find all prime numbers in the range of 3 to %llu.\n", N);   
  
     then_gpu = currentTime();
 
@@ -204,8 +213,7 @@ int main( int argc, char* argv[] )
     // char *results = (char*)malloc((N + 1) * sizeof(char));
     printArray(h_results, N);   
 
-    // initializeArray(h_results, N);
-    printf("\n%%%%%% Find all prime numbers in the range of 3 to %llu.\n", N);   
+    
   
     then_cpu = currentTime();
 
