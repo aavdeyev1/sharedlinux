@@ -1,13 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <sys/time.h>
  
 typedef unsigned long long bignum;
 
 void initializeArray(char a[], bignum len);
-int isPrime(bignum x);
+int d_isPrime(bignum x);
 void computePrimes_cpu(char results[], bignum s, bignum n);
 int arrSum(char results[], bignum len);
+
+
+__host__ double currentTime(){
+
+   struct timeval now;
+   gettimeofday(&now, NULL);
+   
+   return now.tv_sec + now.tv_usec/1000000.0;
+}
 
 // CUDA kernel. Each thread takes care of one element of c
 __global__ void vecAdd(double *a, double *b, double *c, int n)
@@ -27,7 +37,7 @@ void computePrimes_cpu(char results[], bignum s, bignum n){
     if(s % 2 == 0) s ++;  //make sure s is an odd number
  
     for(i=s; i< s+n; i = i + 2){
-       results[i]=isPrime(i);
+       results[i]=h_isPrime(i);
     }
  }
 
@@ -36,15 +46,15 @@ void computePrimes_cpu(char results[], bignum s, bignum n){
     // Get our global thread ID
     int id = blockIdx.x*blockDim.x+threadIdx.x;
     
-    if(&a % 2 == 0) s ++;  //make sure a is an odd number
+    if(a % 2 == 0);  //make sure a is an odd number
 
     // Make sure we do not go out of bounds
     if (id < n)
-        c[id] = isPrime(&a);
+        c[id] = d_isPrime(a);
 
 }
 
-__device__ int isPrime(bignum x){
+__device__ int d_isPrime(bignum x){
 
     bignum i;
     bignum lim = (bignum) sqrt(x) + 1;
@@ -57,7 +67,7 @@ __device__ int isPrime(bignum x){
     return 1;
  }
  
- __host__ int isPrime(bignum x){
+ __host__ int h_isPrime(bignum x){
 
     bignum i;
     bignum lim = (bignum) sqrt(x) + 1;
@@ -135,14 +145,14 @@ int main( int argc, char* argv[] )
     double cost_cpu, cost_gpu;
   
     // Allocate for CPU proc
-    char *results = malloc((N + 1) * sizeof(char));
+    char *results = (char *)malloc((N + 1) * sizeof(char));
 
     int i;
     // Initialize vector on host
     for( i = 3; i < N; i++ ) {
         h_a[i] = i;
-        h_results[i] = 0
-        results[i] = 0
+        h_results[i] = 0;
+        results[i] = 0;
     }
  
     then_gpu = currentTime();
@@ -155,10 +165,11 @@ int main( int argc, char* argv[] )
     cudaMemcpy( d_a, h_a, bytes, cudaMemcpyHostToDevice);
  
     // Number of thread blocks in grid
-    gridSize = (int)ceil((float)n/blockSize);
+    int gridSize;
+    gridSize = (int)ceil((float)N/blockSize);
  
     // Execute the kernel
-    vecAdd<<<gridSize, blockSize>>>(d_a, d_b, d_c, n);
+    elementPrime<<<gridSize, blockSize>>>(d_a, d_results, N);
  
     // Copy array back to host
     cudaMemcpy( h_results, d_results, bytes, cudaMemcpyDeviceToHost );
@@ -189,6 +200,7 @@ int main( int argc, char* argv[] )
     now_cpu = currentTime();
     cost_cpu = now_cpu - then_cpu;
     printf("%%%%%% Serial code execution time in second is %lf\n", cost_cpu);
+    printf("%%%%%% Parallel code execution time in second is %lf\n", cost_gpu);
  
  
     printf("CPU: Total number of primes in that range is: %d.\n\n", arrSum(h_results, N + 1) + 2);
