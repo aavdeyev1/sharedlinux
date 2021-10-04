@@ -161,7 +161,7 @@ int main( int argc, char* argv[] )
     for( i = 3; i < N; i++ ) {
         h_a[i] = i;
         h_results[i] = 0;
-        results[i] = 0;
+        // results[i] = 0;
     }
  
     then_gpu = currentTime();
