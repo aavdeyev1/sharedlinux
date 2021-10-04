@@ -10,7 +10,7 @@
 #include <sys/time.h>
 #include <stdlib.h>
 
-double currentTime(){
+double cpu_currentTime(){
 
    struct timeval now;
    gettimeofday(&now, NULL);

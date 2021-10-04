@@ -17,7 +17,7 @@
 */
 float elapsedTime(struct timeval now, struct timeval then);
 
-double currentTime();
+double cpu_currentTime();
 
 #endif
 
