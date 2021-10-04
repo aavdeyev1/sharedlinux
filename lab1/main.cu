@@ -153,6 +153,10 @@ int main( int argc, char* argv[] )
     double cost_cpu, cost_gpu;
   
     
+    h_results[0] = 0;
+    h_results[1] = 0;
+    h_results[2] = 1;
+    h_results[3] = 1;
 
     bignum i;
     // Initialize vector on host
@@ -161,6 +165,7 @@ int main( int argc, char* argv[] )
         h_results[i] = 0;
         // results[i] = 0;
     }
+    printArray(h_results, N - 3)
  
     then_gpu = currentTime();
 
@@ -184,36 +189,37 @@ int main( int argc, char* argv[] )
     now_gpu = currentTime();
     cost_gpu = now_gpu - then_gpu;
 
+    // print output GPU
+    printf("%%%%%% Parallel code execution time in second is %lf\n", cost_gpu);
+    printf("GPU: Total number of primes in that range is: %d.\n\n", arrSum(results, N + 1));
 
 
 
 
     // Allocate for CPU proc
-    char *results = (char*)malloc((N + 1) * sizeof(char));
-    printArray(results, N);   
+    // char *results = (char*)malloc((N + 1) * sizeof(char));
+    printArray(h_results, N);   
 
-    initializeArray(results, N);
+    // initializeArray(h_results, N);
     printf("\n%%%%%% Find all prime numbers in the range of 3 to %llu.\n", N);   
   
     then_cpu = currentTime();
 
     
 
-    bignum i;
-
-   for(i=s; i< s+N; i++){
+    // bignum i;
+    // bignum s = 3;
+    // for(i=s; i< s+N; i++){
    
-      results[i]=h_isPrime(i);
-   }
-    // computePrimes_cpu(results, 3, N - 3);
+    //     results[i]=h_isPrime(i);
+    // }
+    computePrimes_cpu(h_results, 3, N + 1);
     now_cpu = currentTime();
     cost_cpu = now_cpu - then_cpu;
     printf("%%%%%% Serial code execution time in second is %lf\n", cost_cpu);
-    printf("%%%%%% Paralel code execution time in second is %lf\n", cost_gpu);
- 
  
     printf("CPU: Total number of primes in that range is: %d.\n\n", arrSum(h_results, N + 1));
-    printf("GPU: Total number of primes in that range is: %d.\n\n", arrSum(results, N + 1));
+    
     printf("Cool Beans\n");
 
     free(h_a);
