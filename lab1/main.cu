@@ -194,7 +194,7 @@ int main( int argc, char* argv[] )
     gridSize = (int)ceil((float)N/blockSize);
  
     // Execute the kernel
-    elementPrime<<<gridSize, blockSize>>>(d_a, d_results, N);
+    elementPrime<<<gridSize, blockSize>>>(d_a, d_results, N + 1);
  
     // Copy array back to host
     cudaMemcpy( h_results, d_results, bytes, cudaMemcpyDeviceToHost );
