@@ -38,10 +38,11 @@ void computePrimes_cpu(char results[], bignum s, bignum n){
     bignum i;
 
     if(s % 2 == 0) s ++;  //make sure s is an odd number
-    printf("here %llu\n", s);
+    
  
     for(i=s; i< s+n; i = i + 2){
-       results[i]=h_isPrime(i);
+        printf("here %llu\n", s);
+        results[i]=h_isPrime(i);
     }
  }
 
