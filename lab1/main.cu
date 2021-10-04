@@ -40,7 +40,7 @@ void computePrimes_cpu(char results[], bignum s, bignum n){
 
     if(s % 2 == 0) s ++;  //make sure s is an odd number
     
-    printArray(results, n);
+    // printArray(results, n);
     for(i=s; i< s+n; i = i + 2){
         
         results[i]=h_isPrime(i);
@@ -186,7 +186,7 @@ int main( int argc, char* argv[] )
 
     // Allocate for CPU proc
     int *results = (int*)malloc(bytes);
-    printArray(results, N);   
+    // printArray(results, N);   
 
     // initializeArray(results, N);
     printf("%%%%%% Find all prime numbers in the range of 3 to %llu.\n", N);   
