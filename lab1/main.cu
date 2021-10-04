@@ -41,8 +41,9 @@ void computePrimes_cpu(char results[], bignum s, bignum n){
     
  
     for(i=s; i< s+n; i = i + 2){
-        printf("here %llu\n", i);
+        
         results[i]=h_isPrime(i);
+        printf("here %llu [%c]\n", i, results[i]);
     }
  }
 
@@ -181,27 +182,12 @@ int main( int argc, char* argv[] )
  
     now_gpu = currentTime();
     cost_gpu = now_gpu - then_gpu;
-
-    // // Release device memory
-    // cudaFree(d_a);
-    // cudaFree(d_b);
-    // cudaFree(d_c);
- 
-    // // Release host memory
-    // free(h_a);
-    // free(h_b);
-    // free(h_c);
-    
-    // bignum *a = malloc(N *sizeof(bignum));
-    // char *results = malloc((N + 1) * sizeof(char));
-    // double now, then;
-    // double scost, pcost;
        
     initializeArray(results, N);
     printf("%%%%%% Find all prime numbers in the range of 3 to %llu.\n", N);   
   
     then_cpu = currentTime();
-    computePrimes_cpu(results, 0, N);
+    computePrimes_cpu(results, 3, N);
     now_cpu = currentTime();
     cost_cpu = now_cpu - then_cpu;
     printf("%%%%%% Serial code execution time in second is %lf\n", cost_cpu);
