@@ -181,8 +181,6 @@ int main( int argc, char* argv[] )
     printf("\n%%%%%% GPU: Find all prime numbers in the range of 3 to %llu.\n", N);   
 
     printf("GPU ARRAY 1.0\n");
-    printArray(h_a, N);
-    printf("GPU ARRAY 1.5\n");
     printArray(h_results, N);
  
     then_gpu = currentTime();
