@@ -60,7 +60,7 @@ void computePrimes_cpu(char results[], bignum s, bignum n){
 __device__ int d_isPrime(bignum x){
 
     bignum i;
-    bignum lim = (bignum) sqrt(x) + 1;
+    // bignum lim = (bignum) sqrt(x) + 1;
        
     for(i=2; (i+1)*(i+1)<x; i++){
        if ( x % i == 0)
