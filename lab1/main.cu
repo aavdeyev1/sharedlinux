@@ -154,7 +154,7 @@ int main( int argc, char* argv[] )
   
     
 
-    int i;
+    bignum i;
     // Initialize vector on host
     for( i = 3; i < N; i++ ) {
         h_a[i] = i;
@@ -187,7 +187,7 @@ int main( int argc, char* argv[] )
 
 
 
-    
+
     // Allocate for CPU proc
     char *results = (char*)malloc((N + 1) * sizeof(char));
     printArray(results, N);   
