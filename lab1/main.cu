@@ -206,8 +206,8 @@ int main( int argc, char* argv[] )
     printf("%%%%%% Paralel code execution time in second is %lf\n", cost_gpu);
  
  
-    printf("CPU: Total number of primes in that range is: %d.\n\n", arrSum(h_results, N + 1) + 2);
-    printf("GPU: Total number of primes in that range is: %d.\n\n", arrSum(results, N + 1) + 2);
+    printf("CPU: Total number of primes in that range is: %d.\n\n", arrSum(h_results, N + 1));
+    printf("GPU: Total number of primes in that range is: %d.\n\n", arrSum(results, N + 1));
     printf("Cool Beans\n");
 
     free(h_a);
