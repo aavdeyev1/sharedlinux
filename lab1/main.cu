@@ -62,7 +62,7 @@ __device__ int d_isPrime(bignum x){
     bignum i;
     bignum lim = (bignum) sqrt(x) + 1;
        
-    for(i=2; i<lim; i++){
+    for(i=2; (i+1)*(i+1)<x; i++){
        if ( x % i == 0)
           return 0;
     }
