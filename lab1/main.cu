@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include <sys/time.h>
+// #include <sys/time.h>
  
 typedef unsigned long long bignum;
 
@@ -10,17 +10,17 @@ __device__ int d_isPrime(bignum x);
 void computePrimes_cpu(char results[], bignum s, bignum n);
 int arrSum(char results[], bignum len);
 __host__ int h_isPrime(bignum x);
-__host__ double currentTime();
+// __host__ double currentTime();
 
 
-__host__ double currentTime()
-{
+// __host__ double currentTime()
+// {
 
-   struct timeval now;
-   gettimeofday(&now, NULL);
+//    struct timeval now;
+//    gettimeofday(&now, NULL);
    
-   return now.tv_sec + now.tv_usec/1000000.0;
-}
+//    return now.tv_sec + now.tv_usec/1000000.0;
+// }
 
 // CUDA kernel. Each thread takes care of one element of c
 __global__ void vecAdd(double *a, double *b, double *c, int n)
@@ -203,7 +203,7 @@ int main( int argc, char* argv[] )
     now_cpu = currentTime();
     cost_cpu = now_cpu - then_cpu;
     printf("%%%%%% Serial code execution time in second is %lf\n", cost_cpu);
-    printf("%%%%%% Parallel code execution time in second is %lf\n", cost_gpu);
+    printf("%%%%%% Paralel code execution time in second is %lf\n", cost_gpu);
  
  
     printf("CPU: Total number of primes in that range is: %d.\n\n", arrSum(h_results, N + 1) + 2);
