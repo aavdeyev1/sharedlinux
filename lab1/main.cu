@@ -187,7 +187,7 @@ int main( int argc, char* argv[] )
     printf("%%%%%% Find all prime numbers in the range of 3 to %llu.\n", N);   
   
     then_cpu = currentTime();
-    computePrimes_cpu(results, 3, N);
+    computePrimes_cpu(results, 3, N - 3);
     now_cpu = currentTime();
     cost_cpu = now_cpu - then_cpu;
     printf("%%%%%% Serial code execution time in second is %lf\n", cost_cpu);
