@@ -6,9 +6,10 @@
 typedef unsigned long long bignum;
 
 void initializeArray(char a[], bignum len);
-int d_isPrime(bignum x);
+__device__ int d_isPrime(bignum x);
 void computePrimes_cpu(char results[], bignum s, bignum n);
 int arrSum(char results[], bignum len);
+__host__ int h_isPrime(bignum x)
 
 
 __host__ double currentTime(){
@@ -46,11 +47,11 @@ void computePrimes_cpu(char results[], bignum s, bignum n){
     // Get our global thread ID
     int id = blockIdx.x*blockDim.x+threadIdx.x;
     
-    if(a % 2 == 0);  //make sure a is an odd number
+    if((int)a % 2 == 0);  //make sure a is an odd number
 
     // Make sure we do not go out of bounds
     if (id < n)
-        c[id] = d_isPrime(a);
+        c[id] = d_isPrime(&a);
 
 }
 
@@ -209,7 +210,7 @@ int main( int argc, char* argv[] )
 
     free(h_a);
     free(h_results);
-    free(results)
+    free(results);
 
     cudaFree(d_a);
     cudaFree(d_results);
