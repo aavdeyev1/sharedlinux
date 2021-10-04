@@ -40,7 +40,7 @@ void computePrimes_cpu(char results[], bignum s, bignum n){
 
     if(s % 2 == 0) s ++;  //make sure s is an odd number
     
-    printArray(results[]);
+    printArray(results);
     for(i=s; i< s+n; i = i + 2){
         
         results[i]=h_isPrime(i);
@@ -154,7 +154,7 @@ int main( int argc, char* argv[] )
   
     // Allocate for CPU proc
     char *results = (char *)malloc((N + 1) * sizeof(char));
-    printArray(results[]);
+    printArray(results);
 
     int i;
     // Initialize vector on host
