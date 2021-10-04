@@ -224,7 +224,7 @@ int main( int argc, char* argv[] )
 
     free(h_a);
     free(h_results);
-    free(results);
+    // free(results);
 
     cudaFree(d_a);
     cudaFree(d_results);
