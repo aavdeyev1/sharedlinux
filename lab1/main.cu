@@ -183,15 +183,17 @@ int main( int argc, char* argv[] )
  
     now_gpu = currentTime();
     cost_gpu = now_gpu - then_gpu;
-       
+
+    // Allocate for CPU proc
+    char *results = (char *)malloc((N + 1) * sizeof(char));
+    printArray(results, N);   
+    
     initializeArray(results, N);
     printf("%%%%%% Find all prime numbers in the range of 3 to %llu.\n", N);   
   
     then_cpu = currentTime();
 
-    // Allocate for CPU proc
-    char *results = (char *)malloc((N + 1) * sizeof(char));
-    printArray(results, N);
+    
 
     for(long i = 2; i < ceil(N/2); i++){
 		bignum num = (i * 2) - 1;
