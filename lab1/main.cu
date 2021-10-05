@@ -41,7 +41,7 @@ void computePrimes_cpu(char results[], bignum s, bignum n){
     if(s % 2 == 0) s ++;  //make sure s is an odd number
     
     // printArray(results, n);
-    for(i=s; i< s+n; i = i + 2){
+    for(i=s; i< n; i = i + 2){
         
         results[i]=h_isPrime(i);
         printf("here %llu [%d]\n", i, results[i]);
@@ -116,6 +116,7 @@ int arrSum( char a[], bignum len )
      int i, s = 0;
      for( i = 0; i < len; i ++ )
          s += a[i];
+         printf("\n%d -> %d", i, a[i]);
  
      return s;
  }
@@ -232,7 +233,7 @@ int main( int argc, char* argv[] )
     h_results[1] = 1;
     h_results[2] = 1;
     h_results[3] = 1;
-    computePrimes_cpu(h_results, 3, N - 3);
+    computePrimes_cpu(h_results, 3, N);
     printf("CPU ARRAY 2.0\n");
     printArray(h_results, N);
     now_cpu = currentTime();
