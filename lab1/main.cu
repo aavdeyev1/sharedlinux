@@ -60,7 +60,9 @@ void computePrimes_cpu(char results[], bignum s, bignum n){
     
     if (id < n)
     {
+        
         results[id] = d_isPrime(*a);
+        printf(" | %llu -> %d", a, results[id]);
     }
 }
 
@@ -133,7 +135,7 @@ int arrSum( char a[], bignum len )
      for( i = 0; i < len; i ++ )
      {
          s += a[i];
-         printf(" | %d -> %d", i, a[i]);
+        //  printf(" | %d -> %d", i, a[i]);
      }
  
      return s;
