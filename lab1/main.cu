@@ -103,11 +103,14 @@ void initializeArray(char a[], bignum len){
  void initializeArray_gpu(bignum a[], bignum len){
     // init results char array
        bignum i;
+       bignum s = 0;
        
        for(i=3; i < len; i = i + 2)
        {
-            a[i] = i;
+            
+            a[s] = i;
             printf("here %llu [%llu]\n", i, a[i]);
+            s++
        }
     
     }
@@ -162,7 +165,7 @@ int main( int argc, char* argv[] )
     
     // Allocate for host
     h_a = (bignum*)malloc(bytes*sizeof(bignum));
-    h_results = (char*)calloc(bytes, sizeof(char));
+    h_results = (char*)malloc(bytes*sizeof(char));
 
     // Init timing vars
     double now_cpu, then_cpu;
@@ -173,7 +176,7 @@ int main( int argc, char* argv[] )
 
 
     bignum len_a = ceil((float)N/2) + 1;
-    initializeArray_gpu(h_a, N);
+    initializeArray_gpu(h_a, len_a);
     printf("\n%%%%%% GPU: Find all prime numbers in the range of 3 to %llu.\n", len_a);   
 
     printf("\nGPU ARRAY 1.0\n");
@@ -183,11 +186,11 @@ int main( int argc, char* argv[] )
     then_gpu = currentTime();
 
     // Allocate for device
-    cudaMalloc(&d_a, len_a);
+    cudaMalloc(&d_a, len_a * sizeof(bignum));
     cudaMalloc(&d_results, bytes * sizeof(char));
 
     // Copy host vector to device
-    cudaMemcpy( d_a, h_a, bytes, cudaMemcpyHostToDevice);
+    cudaMemcpy( d_a, h_a, bytes*sizeof(bignum), cudaMemcpyHostToDevice);
  
     // Number of thread blocks in grid
     int gridSize;
@@ -197,7 +200,7 @@ int main( int argc, char* argv[] )
     elementPrime<<<gridSize, blockSize>>>(d_a, d_results, bytes);
  
     // Copy array back to host
-    cudaMemcpy( h_results, d_results, bytes, cudaMemcpyDeviceToHost );
+    cudaMemcpy( h_results, d_results, bytes*sizeof(bignum), cudaMemcpyDeviceToHost );
     printf("\nGPU ARRAY 2.0\n");
     printArray(h_results, bytes);
  
