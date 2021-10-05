@@ -190,17 +190,18 @@ int main( int argc, char* argv[] )
     // }
     // printArray(h_results, N - 3);
 
-    initializeArray_gpu(h_a, bytes);
-    printf("\n%%%%%% GPU: Find all prime numbers in the range of 3 to %llu.\n", N);   
+    bignum len_a = ceil((float)N/2)
+    initializeArray_gpu(h_a, len_a);
+    printf("\n%%%%%% GPU: Find all prime numbers in the range of 3 to %llu.\n", len_a);   
 
     printf("GPU ARRAY 1.0\n");
-    for (int j=0; j < bytes; j++){
+    for (int j=0; j < len_a; j++){
         printf("%llu ", h_a[j]);
     }
     then_gpu = currentTime();
 
     // Allocate for device
-    cudaMalloc(&d_a, bytes);
+    cudaMalloc(&d_a, len_a);
     cudaMalloc(&d_results, (N + 1) * sizeof(char));
 
     // Copy host vector to device
@@ -260,12 +261,12 @@ int main( int argc, char* argv[] )
     
     printf("Cool Beans\n");
 
-    // free(h_a);
+    free(h_a);
     free(h_results);
     // free(results);
 
-    // cudaFree(d_a);
-    // cudaFree(d_results);
+    cudaFree(d_a);
+    cudaFree(d_results);
 
     return 0;
 }
