@@ -191,7 +191,7 @@ int main( int argc, char* argv[] )
     // printArray(h_results, N - 3);
 
     bignum len_a = ceil((float)N/2);
-    initializeArray_gpu(h_a, len_a);
+    initializeArray_gpu(h_a, N);
     printf("\n%%%%%% GPU: Find all prime numbers in the range of 3 to %llu.\n", len_a);   
 
     printf("GPU ARRAY 1.0\n");
