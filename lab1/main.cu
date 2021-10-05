@@ -244,12 +244,12 @@ int main( int argc, char* argv[] )
     
     printf("Cool Beans\n");
 
-    free(h_a);
+    // free(h_a);
     free(h_results);
     // free(results);
 
-    cudaFree(d_a);
-    cudaFree(d_results);
+    // cudaFree(d_a);
+    // cudaFree(d_results);
 
     return 0;
 }
