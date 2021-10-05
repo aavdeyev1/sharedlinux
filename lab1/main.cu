@@ -106,7 +106,7 @@ void initializeArray(char a[], bignum len){
        
        for(i=3; i< len; i = i + 2)
        {
-            a[i] = i
+            a[i] = i;
             printf("here %llu [%d]\n", i, a[i]);
        }
     
@@ -192,8 +192,10 @@ int main( int argc, char* argv[] )
     printf("\n%%%%%% GPU: Find all prime numbers in the range of 3 to %llu.\n", N);   
 
     printf("GPU ARRAY 1.0\n");
-    printArray(h_a, bytes);
- 
+    for (int j=0; j < bytes, j++)
+    {
+        printf("%llu ", h_a);
+    }
     then_gpu = currentTime();
 
     // Allocate for device
