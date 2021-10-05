@@ -62,7 +62,6 @@ void computePrimes_cpu(char results[], bignum s, bignum n){
     {
         
         results[id] = d_isPrime(*a);
-        printf(" | %llu -> %d", a, results[id]);
     }
 }
 
