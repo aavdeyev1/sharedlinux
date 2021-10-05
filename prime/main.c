@@ -8,7 +8,10 @@ int arrSum( char a[], bignum len )
 {
     int i, s = 0;
     for( i = 0; i < len; i ++ )
+    {
         s += a[i];
+        printf("%d ", i);
+    }
 
     return s;
 }
