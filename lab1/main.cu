@@ -44,7 +44,7 @@ void computePrimes_cpu(char results[], bignum s, bignum n){
     for(i=s; i< s+n; i = i + 2){
         
         results[i]=h_isPrime(i);
-        printf("here %llu [%c]\n", i, results[i]);
+        // printf("here %llu [%c]\n", i, results[i]);
     }
  }
 
@@ -174,11 +174,6 @@ int main( int argc, char* argv[] )
     // }
     // printArray(h_results, N - 3);
 
-    h_results[0] = 0;
-    h_results[1] = 0;
-    h_results[2] = 1;
-    h_results[3] = 1;
-
     // initializeArray(h_results, N);
     // printf("\n%%%%%% GPU: Find all prime numbers in the range of 3 to %llu.\n", N);   
 
@@ -233,6 +228,10 @@ int main( int argc, char* argv[] )
     //     results[i]=h_isPrime(i);
     // }
     initializeArray(h_results, N);
+    h_results[0] = 0;
+    h_results[1] = 0;
+    h_results[2] = 1;
+    h_results[3] = 1;
     computePrimes_cpu(h_results, 3, N + 1);
     printf("CPU ARRAY 2.0\n");
     printArray(h_results, N);
