@@ -11,7 +11,7 @@ void computePrimes(char results[], bignum s, bignum n){
    for(i=s; i< s+n; i++){
    
       results[i]=isPrime(i);
-      pprintf("here %llu [%d]\n", i, results[i]);
+      printf("here %llu [%d]\n", i, results[i]);
       
    }
    
