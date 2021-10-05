@@ -132,7 +132,7 @@ int main( int argc, char* argv[] )
     }
     // Retrieve N, blockSize from args
     bignum N = (bignum) atoi(argv[1]);
-    // int blockSize = (int) atoi(argv[2]);
+    int blockSize = (int) atoi(argv[2]);
 
     // Size, in bytes, of each vector
     size_t bytes = N*sizeof(bignum);
