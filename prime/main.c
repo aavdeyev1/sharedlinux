@@ -4,6 +4,15 @@
 #include "prime.h"
 
 
+int arrSum( char a[], bignum len )
+{
+    int i, s = 0;
+    for( i = 0; i < len; i ++ )
+        s += a[i];
+
+    return s;
+}
+
 int main (int argc, const char * argv[]) {    
     // arc is the number of args, argv is the vector of args passed in.
     // argv[1] is the name of the .exe
