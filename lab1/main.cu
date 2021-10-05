@@ -232,7 +232,7 @@ int main( int argc, char* argv[] )
     h_results[1] = 1;
     h_results[2] = 1;
     h_results[3] = 1;
-    computePrimes_cpu(h_results, 3, N + 1);
+    computePrimes_cpu(h_results, 3, N - 3);
     printf("CPU ARRAY 2.0\n");
     printArray(h_results, N);
     now_cpu = currentTime();
