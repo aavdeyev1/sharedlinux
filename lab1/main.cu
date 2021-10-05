@@ -195,7 +195,7 @@ int main( int argc, char* argv[] )
 
     printf("GPU ARRAY 1.0\n");
     for (int j=0; j < bytes; j++){
-        printf("%llu ", h_a);
+        printf("%llu ", h_a[j]);
     }
     then_gpu = currentTime();
 
