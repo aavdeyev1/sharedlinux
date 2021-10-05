@@ -134,7 +134,7 @@ int main( int argc, char* argv[] )
     // int blockSize = (int) atoi(argv[2]);
 
     // Size, in bytes, of each vector
-    size_t bytes = N*sizeof(bignum);
+    // size_t bytes = N*sizeof(bignum);
     
     // Host vectors
     // bignum *h_a;
