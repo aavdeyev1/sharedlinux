@@ -161,8 +161,8 @@ int main( int argc, char* argv[] )
     char *d_results;
     
     // Allocate for host
-    h_a = (bignum*)malloc(bytes);
-    h_results = (char*)calloc(N + 1, sizeof(char));
+    h_a = (bignum*)malloc(bytes*sizeof(bignum));
+    h_results = (char*)calloc(bytes, sizeof(char));
 
     // Init timing vars
     double now_cpu, then_cpu;
@@ -170,31 +170,13 @@ int main( int argc, char* argv[] )
 
     double now_gpu, then_gpu;
     double cost_gpu;
-  
-    
-    // h_results[0] = 0;
-    // h_a[0] = 0;
-    // h_results[1] = 0;
-    // h_a[1] = 1;
-    // h_results[2] = 1;
-    // h_a[2] = 2;
-    // h_results[3] = 1;
-    // h_a[3] = 3;
 
-    // bignum i;
-    // Initialize vector on host
-    // for( i = 4; i < N + 1; i++ ) {
-    //     h_a[i] = i;
-    //     h_results[i] = 0;
-    //     // results[i] = 0;
-    // }
-    // printArray(h_results, N - 3);
 
     bignum len_a = ceil((float)N/2);
     initializeArray_gpu(h_a, N);
     printf("\n%%%%%% GPU: Find all prime numbers in the range of 3 to %llu.\n", len_a);   
 
-    printf("GPU ARRAY 1.0\n");
+    printf("\nGPU ARRAY 1.0\n");
     for (int j=0; j < len_a; j++){
         printf("%llu ", h_a[j]);
     }
@@ -202,7 +184,7 @@ int main( int argc, char* argv[] )
 
     // Allocate for device
     cudaMalloc(&d_a, len_a);
-    cudaMalloc(&d_results, (N + 1) * sizeof(char));
+    cudaMalloc(&d_results, bytes * sizeof(char));
 
     // Copy host vector to device
     cudaMemcpy( d_a, h_a, bytes, cudaMemcpyHostToDevice);
@@ -216,21 +198,21 @@ int main( int argc, char* argv[] )
  
     // Copy array back to host
     cudaMemcpy( h_results, d_results, bytes, cudaMemcpyDeviceToHost );
-    printf("GPU ARRAY 2.0\n");
-    printArray(h_results, N + 1);
+    printf("\nGPU ARRAY 2.0\n");
+    printArray(h_results, bytes);
  
     now_gpu = currentTime();
     cost_gpu = now_gpu - then_gpu;
 
     // print output GPU
     printf("%%%%%% Parallel code execution time in second is %lf\n", cost_gpu);
-    printf("GPU: Total number of primes in that range is: %d.\n\n", arrSum(h_results, N + 1));
+    printf("GPU: Total number of primes in that range is: %d.\n\n", arrSum(h_results, len_a));
 
 
 
 
     // Allocate for CPU proc
-    // char *results = (char*)malloc((N + 1) * sizeof(char));
+    char *results = (char*)malloc((N + 1) * sizeof(char));
     // printArray(h_results, N);   
 
     
@@ -245,25 +227,25 @@ int main( int argc, char* argv[] )
    
     //     results[i]=h_isPrime(i);
     // }
-    initializeArray(h_results, N);
-    h_results[0] = 1;
-    h_results[1] = 1;
-    h_results[2] = 1;
-    h_results[3] = 1;
-    computePrimes_cpu(h_results, 3, N);
+    initializeArray(results, N);
+    results[0] = 1;
+    results[1] = 1;
+    results[2] = 1;
+    results[3] = 1;
+    computePrimes_cpu(results, 3, N);
     // printf("CPU ARRAY 2.0\n");
     // printArray(h_results, N);
     now_cpu = currentTime();
     cost_cpu = now_cpu - then_cpu;
     printf("%%%%%% Serial code execution time in second is %lf\n", cost_cpu);
  
-    printf("CPU: Total number of primes in that range is: %d.\n\n", arrSum(h_results, N + 1));
+    printf("CPU: Total number of primes in that range is: %d.\n\n", arrSum(results, N + 1));
     
     printf("Cool Beans\n");
 
     free(h_a);
-    // free(h_results);
-    // free(results);
+    free(h_results);
+    free(results);
 
     cudaFree(d_a);
     cudaFree(d_results);
