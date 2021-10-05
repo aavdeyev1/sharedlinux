@@ -10,7 +10,7 @@ int arrSum( char a[], bignum len )
     for( i = 0; i < len; i ++ )
     {
         s += a[i];
-        printf("%d -> %d", i, a[i]);
+        printf("\n%d -> %d", i, a[i]);
     }
 
     return s;
