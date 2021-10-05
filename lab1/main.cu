@@ -110,7 +110,7 @@ void initializeArray(char a[], bignum len){
             
             a[s] = i;
             printf("here %llu [%llu]\n", i, a[i]);
-            s++
+            s++;
        }
     
     }
