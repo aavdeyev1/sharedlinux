@@ -60,10 +60,7 @@ void computePrimes_cpu(char results[], bignum s, bignum n){
     
     if (id < n)
     {
-        if (id % 2 != 0)
-            results[id] = d_isPrime(id);
-        else
-            results[id] = 0;
+        results[id] = d_isPrime(*a);
     }
 }
 
@@ -103,6 +100,17 @@ void initializeArray(char a[], bignum len){
  
  }
  
+ void initializeArray_gpu(bignum a[], bignum len){
+    // init results char array
+       bignum i;
+       
+       for(i=3; i< len; i = i + 2)
+       {
+            a[i] = i
+            printf("here %llu [%d]\n", i, a[i]);
+       }
+    
+    }
 
  void printArray(char a[], int len){
  
@@ -140,7 +148,7 @@ int main( int argc, char* argv[] )
     int blockSize = (int) atoi(argv[2]);
 
     // Size, in bytes, of each vector
-    size_t bytes = N*sizeof(bignum);
+    size_t bytes = ceil((float)N/2);
     
     // Host vectors
     bignum *h_a;
@@ -180,11 +188,11 @@ int main( int argc, char* argv[] )
     // }
     // printArray(h_results, N - 3);
 
-    // initializeArray(h_results, N);
+    initializeArray_gpu(h_a, bytes);
     printf("\n%%%%%% GPU: Find all prime numbers in the range of 3 to %llu.\n", N);   
 
     printf("GPU ARRAY 1.0\n");
-    printArray(h_results, N);
+    printArray(h_a, bytes);
  
     then_gpu = currentTime();
 
@@ -200,7 +208,7 @@ int main( int argc, char* argv[] )
     gridSize = (int)ceil((float)N/blockSize);
  
     // Execute the kernel
-    elementPrime<<<gridSize, blockSize>>>(d_a, d_results, N + 1);
+    elementPrime<<<gridSize, blockSize>>>(d_a, d_results, bytes);
  
     // Copy array back to host
     cudaMemcpy( h_results, d_results, bytes, cudaMemcpyDeviceToHost );
