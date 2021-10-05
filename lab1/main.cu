@@ -228,8 +228,8 @@ int main( int argc, char* argv[] )
     //     results[i]=h_isPrime(i);
     // }
     initializeArray(h_results, N);
-    h_results[0] = 0;
-    h_results[1] = 0;
+    h_results[0] = 1;
+    h_results[1] = 1;
     h_results[2] = 1;
     h_results[3] = 1;
     computePrimes_cpu(h_results, 3, N + 1);
