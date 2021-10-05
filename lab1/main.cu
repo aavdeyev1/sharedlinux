@@ -54,12 +54,17 @@ void computePrimes_cpu(char results[], bignum s, bignum n){
     int id = blockIdx.x*blockDim.x+threadIdx.x;
     
     // if(*a == 0 | *a == 1 | *a == 2 or *a == 3);
-    if(*a % 2 == 0);  //make sure a is an odd number
+    // if(id % 2 == 0);  //make sure a is an odd number
 
     // Make sure we do not go out of bounds
+    
     if (id < n)
-        results[id] = d_isPrime(*a);
-
+    {
+        if (id % 2 != 0)
+            results[id] = d_isPrime(id);
+        else
+            results[id] = 0;
+    }
 }
 
 __device__ int d_isPrime(bignum x){
@@ -67,7 +72,7 @@ __device__ int d_isPrime(bignum x){
     bignum i;
     // bignum lim = (bignum) sqrt(x) + 1;
        
-    for(i=2; i*i<x; i = i + 2){
+    for(i=2; i*i<x; i = i++){
        if ( x % i == 0)
           return 0;
     }
@@ -200,7 +205,7 @@ int main( int argc, char* argv[] )
     // Copy array back to host
     cudaMemcpy( h_results, d_results, bytes, cudaMemcpyDeviceToHost );
     printf("GPU ARRAY 2.0\n");
-    printArray(h_results, N);
+    printArray(h_results, N + 1);
  
     now_gpu = currentTime();
     cost_gpu = now_gpu - then_gpu;
