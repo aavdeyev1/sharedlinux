@@ -150,7 +150,7 @@ int main( int argc, char* argv[] )
     int blockSize = (int) atoi(argv[2]);
 
     // Size, in bytes, of each vector
-    size_t bytes = ceil((float)N/2);
+    size_t bytes = ceil((float)N/2) + 1;
     
     // Host vectors
     bignum *h_a;
@@ -172,7 +172,7 @@ int main( int argc, char* argv[] )
     double cost_gpu;
 
 
-    bignum len_a = ceil((float)N/2);
+    bignum len_a = ceil((float)N/2) + 1;
     initializeArray_gpu(h_a, N);
     printf("\n%%%%%% GPU: Find all prime numbers in the range of 3 to %llu.\n", len_a);   
 
