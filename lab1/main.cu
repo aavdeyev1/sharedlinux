@@ -57,11 +57,10 @@ void computePrimes_cpu(char results[], bignum s, bignum n){
     // if(id % 2 == 0);  //make sure a is an odd number
 
     // Make sure we do not go out of bounds
-    
     if (id < n)
     {
         
-        results[id] = d_isPrime(*a);
+        results[id] = d_isPrime(a[id]);
     }
 }
 
@@ -106,11 +105,11 @@ void initializeArray(char a[], bignum len){
        bignum i;
        bignum s = 0;
        
-       for(i=3; i < len; i = i + 2)
+       for(i=3; i < len; i++)
        {
             
-            a[s] = i;
-            printf("here %llu [%llu]\n", i, a[s]);
+            a[i] = i;
+            printf("here %llu [%llu]\n", i, a[i]);
             s++;
        }
     
@@ -165,8 +164,8 @@ int main( int argc, char* argv[] )
     char *d_results;
     
     // Allocate for host
-    h_a = (bignum*)malloc(bytes*sizeof(bignum));
-    h_results = (char*)malloc(bytes*sizeof(char));
+    h_a = (bignum*)malloc((N + 1)*sizeof(bignum));
+    h_results = (char*)malloc((N + 1)*sizeof(char));
 
     // Init timing vars
     double now_cpu, then_cpu;
@@ -176,7 +175,7 @@ int main( int argc, char* argv[] )
     double cost_gpu;
 
 
-    bignum len_a = ceil((float)N/2) + 1;
+    bignum len_a = N;
     initializeArray_gpu(h_a, N);
     printf("\n%%%%%% GPU: Find all prime numbers in the range of 3 to %llu.\n", len_a);   
 
@@ -187,30 +186,30 @@ int main( int argc, char* argv[] )
     then_gpu = currentTime();
 
     // Allocate for device
-    cudaMalloc(&d_a, len_a * sizeof(bignum));
+    cudaMalloc(&d_a, len_a* sizeof(bignum));
     cudaMalloc(&d_results, len_a * sizeof(char));
 
     // Copy host vector to device
-    cudaMemcpy( d_a, h_a, bytes*sizeof(bignum), cudaMemcpyHostToDevice);
+    cudaMemcpy( d_a, h_a, len_a*sizeof(bignum), cudaMemcpyHostToDevice);
  
     // Number of thread blocks in grid
     int gridSize;
-    gridSize = (int)ceil((float)len_a/blockSize);
+    gridSize = (int)ceil((float)N/blockSize);
  
     // Execute the kernel
     elementPrime<<<gridSize, blockSize>>>(d_a, d_results, len_a);
  
     // Copy array back to host
-    cudaMemcpy( h_results, d_results, bytes*sizeof(bignum), cudaMemcpyDeviceToHost );
+    cudaMemcpy( h_results, d_results, len_a*sizeof(bignum), cudaMemcpyDeviceToHost );
     printf("\nGPU ARRAY 2.0\n");
-    printArray(h_results, len_a + 1);
+    printArray(h_results, len_a);
  
     now_gpu = currentTime();
     cost_gpu = now_gpu - then_gpu;
 
     // print output GPU
     printf("%%%%%% Parallel code execution time in second is %lf\n", cost_gpu);
-    printf("GPU: Total number of primes in that range is: %d.\n\n", arrSum(h_results, len_a + 1));
+    printf("GPU: Total number of primes in that range is: %d.\n\n", arrSum(h_results, len_a));
 
 
 
