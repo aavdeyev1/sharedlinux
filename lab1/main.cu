@@ -107,7 +107,7 @@ void initializeArray(char a[], bignum len){
        for(i=3; i< len; i = i + 2)
        {
             a[i] = i;
-            printf("here %llu [%d]\n", i, a[i]);
+            printf("here %llu [%llu]\n", i, a[i]);
        }
     
     }
