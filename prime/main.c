@@ -39,6 +39,7 @@ int main (int argc, const char * argv[]) {
    now = currentTime();
    scost = now - then;
    printf("%%%%%% Serial code executiontime in second is %lf\n", scost);
+   printf("Total number of primes in that range is: %d.\n\n", arrSum(results, N + 1));
 
 //    then = currentTime();
 //    pcomputePrimes(results, 0, N);
@@ -49,6 +50,6 @@ int main (int argc, const char * argv[]) {
 //    printf("%%%%%% The speedup(SerialTimeCost / ParallelTimeCost) when using 4 threads is %lf\n", scost / pcost); 
 //    printf("%%%%%% The efficiency(Speedup / NumProcessorCores) when using 4 threads is %lf\n", scost / pcost / 4); 
 
-   printArray(results, N);
+//    printArray(results, N);
    return 0;
 }
