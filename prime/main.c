@@ -40,15 +40,15 @@ int main (int argc, const char * argv[]) {
    scost = now - then;
    printf("%%%%%% Serial code executiontime in second is %lf\n", scost);
 
-   then = currentTime();
-   pcomputePrimes(results, 0, N);
-   now = currentTime();
-   pcost = now - then;
-   printf("%%%%%% Parallel code executiontime with 4 threads in second is %lf\n", pcost);
+//    then = currentTime();
+//    pcomputePrimes(results, 0, N);
+//    now = currentTime();
+//    pcost = now - then;
+//    printf("%%%%%% Parallel code executiontime with 4 threads in second is %lf\n", pcost);
    
-   printf("%%%%%% The speedup(SerialTimeCost / ParallelTimeCost) when using 4 threads is %lf\n", scost / pcost); 
-   printf("%%%%%% The efficiency(Speedup / NumProcessorCores) when using 4 threads is %lf\n", scost / pcost / 4); 
+//    printf("%%%%%% The speedup(SerialTimeCost / ParallelTimeCost) when using 4 threads is %lf\n", scost / pcost); 
+//    printf("%%%%%% The efficiency(Speedup / NumProcessorCores) when using 4 threads is %lf\n", scost / pcost / 4); 
 
-   //printArray(results, N);
+   printArray(results, N);
    return 0;
 }

@@ -13,7 +13,6 @@ void computePrimes(char results[], bignum s, bignum n){
       results[i]=isPrime(i);
       
    }
-   printArray(results, n);
    
 }
 
@@ -31,9 +30,10 @@ void * primeThread(void *args){
    // are freeing the memory occupied by the jobSpec.
    free(js);
 
-   printf("Computing %llu primes starting at %llu\n", n, start);
+   // printf("Computing %llu primes starting at %llu\n", n, start);
    
    computePrimes(results, start, n);
+   printArray(results, n);
    
    return NULL;
 
