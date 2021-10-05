@@ -162,7 +162,7 @@ int main( int argc, char* argv[] )
     
     // Allocate for host
     h_a = (bignum*)malloc(bytes);
-    h_results = (char*)malloc((N + 1) * sizeof(char));
+    h_results = (char*)calloc((N + 1) * sizeof(char));
 
     // Init timing vars
     double now_cpu, then_cpu;
@@ -262,7 +262,7 @@ int main( int argc, char* argv[] )
     printf("Cool Beans\n");
 
     free(h_a);
-    free(h_results);
+    // free(h_results);
     // free(results);
 
     cudaFree(d_a);
