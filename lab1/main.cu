@@ -162,7 +162,7 @@ int main( int argc, char* argv[] )
     
     // Allocate for host
     h_a = (bignum*)malloc(bytes);
-    h_results = (char*)calloc(N + 1, char);
+    h_results = (char*)calloc(N + 1, sizeof(char));
 
     // Init timing vars
     double now_cpu, then_cpu;
